@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-11-26" view-index="0" gantt-divider-location="519" resource-divider-location="515" version="3.3.3312" locale="en_US">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Name" width="156" order="0"/>
+        <field id="tpd4" name="Begin date" width="61" order="1"/>
+        <field id="tpd5" name="End date" width="61" order="2"/>
+        <field id="tpd6" name="Duration" width="42" order="3"/>
+        <field id="tpd7" name="Completion" width="42" order="4"/>
+        <field id="tpd8" name="Coordinator" width="156" order="5"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="318" order="0"/>
+        <field id="1" name="Default role" width="193" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="7a0a8aeea52a44d5a5d9a383f71078d7" name="Constitution des équipes et proposition de thèmes" color="#8cb6ce" meeting="false" start="2023-10-24" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[
+                Point de départ du projet avec la présentation du titre RNCP par les admins et la constitution de l'équipe. Détermination du projet que l'on souhaite réaliser pour titre RNCP. Identification des qualitées et des points forts de chaque membre du groupe pour se répartir les tâches à réaliser. Thème gardé  création d'un ornithoptère. 
+            ]]></notes>
+        </task>
+        <task id="6" uid="94af5214f59c4ff5bd57b482393d718a" name="Etablissement précis des obejectifs du projet" color="#8cb6ce" meeting="false" start="2023-11-28" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[
+                Mise sur papier des actions que doit réaliser l'ornithoptère. Détermination nom du projet, du contexte pour lequel onus réalisons ce projet. Répondre à un cahier des charge donné par une entreprise qui souhaite commercialiser un ornithoptère ludique et accessible pour tout publique. 
+            ]]></notes>
+        </task>
+        <task id="13" uid="1289ec779cd2465c91b966d3ecc2ceaa" name="Premier look de l'ornithoptère" color="#8cb6ce" meeting="false" start="2023-12-05" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[
+                Réalistion de la comparaison entre la grille de compétence à acquérir et se les compétences que l'ornithoptère nous permet de valider. Réalisation d'un premier get sur le look de notre ornithoptère avec la finalisation des actions que doit réliser notre protoype ( attérir, décoller, ... )
+            ]]></notes>
+        </task>
+        <task id="15" uid="3eec297084de4698a164a5dc13748815" name="Finalisation du texte et de la bome" color="#8cb6ce" meeting="false" start="2023-12-12" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[
+                Finalisation du texte de présentation de notre projet avant de le soumettre au admins pour une validation de notre projet. Réalisation du début de la bome, permettant d'identifier les différents organes principaux de notre ornithoptère. Début de la plannification de notre gantt prévisionnel. 
+            ]]></notes>
+        </task>
+        <task id="17" uid="896080d39aab43c3a7ddef1ed4312116" name="Début des recherches de documentation" color="#8cb6ce" meeting="false" start="2024-01-23" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[
+                Recherche sur les documentations de réalisation d'un ornithoptère. Ressources pour la réalisation de l'armature et du système de mécanique permettant le mouvement de l'ornithoptère. Recherche sur les côtes permettant de réaliser une envergure nécessaire pour porter le poids du prototype. 
+            ]]></notes>
+        </task>
+        <task id="20" uid="738cf83faf4447e696499ef7a98e7376" name="Réalisation des premiers schéma et réalisation 3D" color="#8cb6ce" meeting="false" start="2024-01-23" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[
+                Premier schéma de réalisation 3D, concernant les engrenages et les support permettant de faire bouger les ailes de l'ornithoptère. Puis recherche sur les différentes types de plumes d'un oiseaux, du poids, des mensuration et autre. Premiére tentative d'impression avec des couches très fines en PLA ( 0.02 / 0.01 / ... ) 
+            ]]></notes>
+        </task>
+        <task id="22" uid="77ea5f84d4ee4e7885f2d27256007c58" name="Première impression des ailes" meeting="false" start="2025-02-05" duration="1" complete="0" expand="true"/>
+        <task id="23" uid="58c4ba58858749f3b5d22ed52ae825bc" name="Réalisation de la BOM" meeting="false" start="2024-12-11" duration="1" complete="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="LEBOURCH Alexandre" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="ROJOA Azad" function="Default:1" contacts="" phone=""/>
+        <resource id="2" name="THEVENET Léo" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="YRIEIX Léa" function="Default:0" contacts="" phone=""/>
+        <resource id="4" name="Groupe " function="Default:1" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="4" function="Default:1" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
