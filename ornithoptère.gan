@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-11-26" view-index="0" gantt-divider-location="519" resource-divider-location="515" version="3.3.3312" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2025-06-29" view-index="0" gantt-divider-location="829" resource-divider-location="515" version="2.8.11" locale="fr">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Name" width="156" order="0"/>
-        <field id="tpd4" name="Begin date" width="61" order="1"/>
-        <field id="tpd5" name="End date" width="61" order="2"/>
-        <field id="tpd6" name="Duration" width="42" order="3"/>
-        <field id="tpd7" name="Completion" width="42" order="4"/>
-        <field id="tpd8" name="Coordinator" width="156" order="5"/>
-        <option id="filter.completedTasks" value="false"/>
-        <option id="filter.dueTodayTasks" value="false"/>
-        <option id="filter.overdueTasks" value="false"/>
-        <option id="filter.inProgressTodayTasks" value="false"/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="313" order="0"/>
+        <field id="tpd4" name="Date de début" width="77" order="1"/>
+        <field id="tpd5" name="Date de fin" width="103" order="2"/>
+        <field id="tpd6" name="Durée" width="113" order="3"/>
+        <field id="tpd7" name="Avancée" width="102" order="4"/>
+        <field id="tpd8" name="Responsable" width="102" order="5"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="318" order="0"/>
-        <field id="1" name="Default role" width="193" order="1"/>
+        <field id="0" name="Nom" width="318" order="0"/>
+        <field id="1" name="Rôle par défaut" width="193" order="1"/>
     </view>
     <!-- -->
-    <calendars>
+    <calendars base-id="Aucun">
         <day-types>
             <day-type id="0"/>
             <day-type id="1"/>
@@ -26,6 +22,168 @@
             <overriden-day-types/>
             <days/>
         </day-types>
+        <date year="2024" month="10" date="31" type="HOLIDAY"/>
+        <date year="2024" month="11" date="4" type="HOLIDAY"/>
+        <date year="2024" month="11" date="5" type="HOLIDAY"/>
+        <date year="2024" month="11" date="6" type="HOLIDAY"/>
+        <date year="2024" month="11" date="7" type="HOLIDAY"/>
+        <date year="2024" month="11" date="8" type="HOLIDAY"/>
+        <date year="2024" month="11" date="11" type="HOLIDAY"/>
+        <date year="2024" month="11" date="12" type="HOLIDAY"/>
+        <date year="2024" month="11" date="13" type="HOLIDAY"/>
+        <date year="2024" month="11" date="14" type="HOLIDAY"/>
+        <date year="2024" month="11" date="15" type="HOLIDAY"/>
+        <date year="2024" month="11" date="18" type="HOLIDAY"/>
+        <date year="2024" month="11" date="19" type="HOLIDAY"/>
+        <date year="2024" month="11" date="21" type="HOLIDAY"/>
+        <date year="2024" month="11" date="25" type="HOLIDAY"/>
+        <date year="2024" month="11" date="26" type="HOLIDAY"/>
+        <date year="2024" month="11" date="27" type="HOLIDAY"/>
+        <date year="2024" month="11" date="28" type="HOLIDAY"/>
+        <date year="2024" month="11" date="29" type="HOLIDAY"/>
+        <date year="2024" month="12" date="2" type="HOLIDAY"/>
+        <date year="2024" month="12" date="3" type="HOLIDAY"/>
+        <date year="2024" month="12" date="4" type="HOLIDAY"/>
+        <date year="2024" month="12" date="5" type="HOLIDAY"/>
+        <date year="2024" month="12" date="6" type="HOLIDAY"/>
+        <date year="2024" month="12" date="10" type="HOLIDAY"/>
+        <date year="2024" month="12" date="12" type="HOLIDAY"/>
+        <date year="2024" month="12" date="13" type="HOLIDAY"/>
+        <date year="2024" month="12" date="16" type="HOLIDAY"/>
+        <date year="2024" month="12" date="17" type="HOLIDAY"/>
+        <date year="2024" month="12" date="18" type="HOLIDAY"/>
+        <date year="2024" month="12" date="19" type="HOLIDAY"/>
+        <date year="2024" month="12" date="20" type="HOLIDAY"/>
+        <date year="2024" month="12" date="23" type="HOLIDAY"/>
+        <date year="2024" month="12" date="24" type="HOLIDAY"/>
+        <date year="2024" month="12" date="25" type="HOLIDAY"/>
+        <date year="2024" month="12" date="26" type="HOLIDAY"/>
+        <date year="2024" month="12" date="27" type="HOLIDAY"/>
+        <date year="2024" month="1" date="30" type="HOLIDAY"/>
+        <date year="2024" month="1" date="31" type="HOLIDAY"/>
+        <date year="2025" month="1" date="1" type="HOLIDAY"/>
+        <date year="2025" month="1" date="2" type="HOLIDAY"/>
+        <date year="2025" month="1" date="3" type="HOLIDAY"/>
+        <date year="2025" month="1" date="4" type="HOLIDAY"/>
+        <date year="2025" month="1" date="6" type="HOLIDAY"/>
+        <date year="2025" month="1" date="7" type="HOLIDAY"/>
+        <date year="2025" month="1" date="8" type="HOLIDAY"/>
+        <date year="2025" month="1" date="9" type="HOLIDAY"/>
+        <date year="2025" month="1" date="10" type="HOLIDAY"/>
+        <date year="2025" month="1" date="13" type="HOLIDAY"/>
+        <date year="2025" month="1" date="14" type="HOLIDAY"/>
+        <date year="2025" month="1" date="20" type="HOLIDAY"/>
+        <date year="2025" month="1" date="21" type="HOLIDAY"/>
+        <date year="2025" month="1" date="22" type="HOLIDAY"/>
+        <date year="2025" month="1" date="23" type="HOLIDAY"/>
+        <date year="2025" month="1" date="24" type="HOLIDAY"/>
+        <date year="2025" month="1" date="27" type="HOLIDAY"/>
+        <date year="2025" month="1" date="28" type="HOLIDAY"/>
+        <date year="2025" month="1" date="29" type="HOLIDAY"/>
+        <date year="2025" month="1" date="30" type="HOLIDAY"/>
+        <date year="2025" month="1" date="31" type="HOLIDAY"/>
+        <date year="2025" month="2" date="3" type="HOLIDAY"/>
+        <date year="2025" month="2" date="4" type="HOLIDAY"/>
+        <date year="2025" month="2" date="6" type="HOLIDAY"/>
+        <date year="2025" month="2" date="7" type="HOLIDAY"/>
+        <date year="2025" month="2" date="10" type="HOLIDAY"/>
+        <date year="2025" month="2" date="11" type="HOLIDAY"/>
+        <date year="2025" month="2" date="12" type="HOLIDAY"/>
+        <date year="2025" month="2" date="13" type="HOLIDAY"/>
+        <date year="2025" month="2" date="14" type="HOLIDAY"/>
+        <date year="2025" month="2" date="17" type="HOLIDAY"/>
+        <date year="2025" month="2" date="18" type="HOLIDAY"/>
+        <date year="2025" month="2" date="19" type="HOLIDAY"/>
+        <date year="2025" month="2" date="20" type="HOLIDAY"/>
+        <date year="2025" month="2" date="21" type="HOLIDAY"/>
+        <date year="2025" month="2" date="24" type="HOLIDAY"/>
+        <date year="2025" month="2" date="25" type="HOLIDAY"/>
+        <date year="2025" month="2" date="27" type="HOLIDAY"/>
+        <date year="2025" month="3" date="3" type="HOLIDAY"/>
+        <date year="2025" month="3" date="4" type="HOLIDAY"/>
+        <date year="2025" month="3" date="5" type="HOLIDAY"/>
+        <date year="2025" month="3" date="6" type="HOLIDAY"/>
+        <date year="2025" month="3" date="7" type="HOLIDAY"/>
+        <date year="2025" month="3" date="10" type="HOLIDAY"/>
+        <date year="2025" month="3" date="11" type="HOLIDAY"/>
+        <date year="2025" month="3" date="12" type="HOLIDAY"/>
+        <date year="2025" month="3" date="13" type="HOLIDAY"/>
+        <date year="2025" month="3" date="14" type="HOLIDAY"/>
+        <date year="2025" month="3" date="17" type="HOLIDAY"/>
+        <date year="2025" month="3" date="18" type="HOLIDAY"/>
+        <date year="2025" month="3" date="20" type="HOLIDAY"/>
+        <date year="2025" month="3" date="21" type="HOLIDAY"/>
+        <date year="2025" month="3" date="24" type="HOLIDAY"/>
+        <date year="2025" month="3" date="25" type="HOLIDAY"/>
+        <date year="2025" month="3" date="26" type="HOLIDAY"/>
+        <date year="2025" month="3" date="27" type="HOLIDAY"/>
+        <date year="2025" month="3" date="28" type="HOLIDAY"/>
+        <date year="2025" month="3" date="31" type="HOLIDAY"/>
+        <date year="2025" month="4" date="1" type="HOLIDAY"/>
+        <date year="2025" month="4" date="2" type="HOLIDAY"/>
+        <date year="2025" month="4" date="3" type="HOLIDAY"/>
+        <date year="2025" month="4" date="4" type="HOLIDAY"/>
+        <date year="2025" month="4" date="7" type="HOLIDAY"/>
+        <date year="2025" month="4" date="8" type="HOLIDAY"/>
+        <date year="2025" month="4" date="10" type="HOLIDAY"/>
+        <date year="2025" month="4" date="11" type="HOLIDAY"/>
+        <date year="2024" month="11" date="1" type="HOLIDAY"/>
+        <date year="2024" month="12" date="30" type="HOLIDAY"/>
+        <date year="2024" month="12" date="31" type="HOLIDAY"/>
+        <date year="2025" month="4" date="14" type="HOLIDAY"/>
+        <date year="2025" month="4" date="15" type="HOLIDAY"/>
+        <date year="2025" month="4" date="16" type="HOLIDAY"/>
+        <date year="2025" month="4" date="17" type="HOLIDAY"/>
+        <date year="2025" month="4" date="18" type="HOLIDAY"/>
+        <date year="2025" month="4" date="21" type="HOLIDAY"/>
+        <date year="2025" month="4" date="22" type="HOLIDAY"/>
+        <date year="2025" month="4" date="23" type="HOLIDAY"/>
+        <date year="2025" month="4" date="24" type="HOLIDAY"/>
+        <date year="2025" month="4" date="25" type="HOLIDAY"/>
+        <date year="2025" month="4" date="28" type="HOLIDAY"/>
+        <date year="2025" month="4" date="29" type="HOLIDAY"/>
+        <date year="2025" month="5" date="1" type="HOLIDAY"/>
+        <date year="2025" month="5" date="2" type="HOLIDAY"/>
+        <date year="2025" month="5" date="5" type="HOLIDAY"/>
+        <date year="2025" month="5" date="6" type="HOLIDAY"/>
+        <date year="2025" month="5" date="7" type="HOLIDAY"/>
+        <date year="2025" month="5" date="8" type="HOLIDAY"/>
+        <date year="2025" month="5" date="9" type="HOLIDAY"/>
+        <date year="2025" month="5" date="12" type="HOLIDAY"/>
+        <date year="2025" month="5" date="13" type="HOLIDAY"/>
+        <date year="2025" month="5" date="14" type="HOLIDAY"/>
+        <date year="2025" month="5" date="15" type="HOLIDAY"/>
+        <date year="2025" month="5" date="16" type="HOLIDAY"/>
+        <date year="2025" month="5" date="19" type="HOLIDAY"/>
+        <date year="2025" month="5" date="20" type="HOLIDAY"/>
+        <date year="2025" month="5" date="22" type="HOLIDAY"/>
+        <date year="2025" month="5" date="23" type="HOLIDAY"/>
+        <date year="2025" month="5" date="26" type="HOLIDAY"/>
+        <date year="2025" month="5" date="27" type="HOLIDAY"/>
+        <date year="2025" month="5" date="28" type="HOLIDAY"/>
+        <date year="2025" month="5" date="29" type="HOLIDAY"/>
+        <date year="2025" month="5" date="30" type="HOLIDAY"/>
+        <date year="2025" month="6" date="2" type="HOLIDAY"/>
+        <date year="2025" month="6" date="3" type="HOLIDAY"/>
+        <date year="2025" month="6" date="4" type="HOLIDAY"/>
+        <date year="2025" month="6" date="5" type="HOLIDAY"/>
+        <date year="2025" month="6" date="6" type="HOLIDAY"/>
+        <date year="2025" month="6" date="9" type="HOLIDAY"/>
+        <date year="2025" month="6" date="10" type="HOLIDAY"/>
+        <date year="2025" month="6" date="12" type="HOLIDAY"/>
+        <date year="2025" month="6" date="13" type="HOLIDAY"/>
+        <date year="2025" month="6" date="16" type="HOLIDAY"/>
+        <date year="2025" month="6" date="17" type="HOLIDAY"/>
+        <date year="2025" month="6" date="18" type="HOLIDAY"/>
+        <date year="2025" month="6" date="19" type="HOLIDAY"/>
+        <date year="2025" month="6" date="20" type="HOLIDAY"/>
+        <date year="2025" month="6" date="24" type="HOLIDAY"/>
+        <date year="2025" month="6" date="26" type="HOLIDAY"/>
+        <date year="2025" month="6" date="27" type="HOLIDAY"/>
+        <date year="2025" month="6" date="30" type="HOLIDAY"/>
+        <date year="2025" month="7" date="1" type="HOLIDAY"/>
+        <date year="2025" month="7" date="2" type="HOLIDAY"/>
+        <date year="2025" month="7" date="3" type="HOLIDAY"/>
     </calendars>
     <tasks empty-milestones="true">
         <taskproperties>
@@ -40,38 +198,136 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" uid="7a0a8aeea52a44d5a5d9a383f71078d7" name="Constitution des équipes et proposition de thèmes" color="#8cb6ce" meeting="false" start="2023-10-24" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
-            <notes><![CDATA[
-                Point de départ du projet avec la présentation du titre RNCP par les admins et la constitution de l'équipe. Détermination du projet que l'on souhaite réaliser pour titre RNCP. Identification des qualitées et des points forts de chaque membre du groupe pour se répartir les tâches à réaliser. Thème gardé  création d'un ornithoptère. 
-            ]]></notes>
+        <task id="154" name="Début du Projet" color="#8cb6ce" meeting="true" start="2024-10-30" duration="0" complete="0" thirdDate="2025-05-21" thirdDate-constraint="0" expand="true"/>
+        <task id="30" name="Etablissements Précis du Projet" meeting="false" start="2024-10-30" duration="2" complete="0" expand="true">
+            <depend id="66" type="2" difference="0" hardness="Strong"/>
+            <task id="32" name="Identification du Besoin Client" color="#8cb6ce" meeting="false" start="2024-10-30" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true">
+                <depend id="37" type="2" difference="0" hardness="Strong"/>
+                <depend id="40" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="33" name="Marchés Actuels et Ceux Disponibles" color="#8cb6ce" meeting="false" start="2024-10-30" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true">
+                <depend id="34" type="2" difference="0" hardness="Strong"/>
+                <depend id="51" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="34" name="Concurrents Potentiel" color="#8cb6ce" meeting="false" start="2024-11-20" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true"/>
+            <task id="37" name="Répondre à la Demande du Client" color="#8cb6ce" meeting="false" start="2024-11-20" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true">
+                <depend id="50" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="90" name="Etude de Faisabilité" color="#8cb6ce" meeting="false" start="2024-10-30" duration="2" complete="0" thirdDate="2024-10-28" thirdDate-constraint="0" expand="true">
+                <depend id="40" type="2" difference="0" hardness="Strong"/>
+                <depend id="42" type="2" difference="0" hardness="Strong"/>
+                <depend id="50" type="2" difference="0" hardness="Strong"/>
+            </task>
         </task>
-        <task id="6" uid="94af5214f59c4ff5bd57b482393d718a" name="Etablissement précis des obejectifs du projet" color="#8cb6ce" meeting="false" start="2023-11-28" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
-            <notes><![CDATA[
-                Mise sur papier des actions que doit réaliser l'ornithoptère. Détermination nom du projet, du contexte pour lequel onus réalisons ce projet. Répondre à un cahier des charge donné par une entreprise qui souhaite commercialiser un ornithoptère ludique et accessible pour tout publique. 
-            ]]></notes>
+        <task id="38" name="Premières Ebauches Papier" color="#8cb6ce" meeting="false" start="2024-11-22" duration="2" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true">
+            <task id="40" name="Apparence Souhaitée" color="#8cb6ce" meeting="false" start="2024-11-22" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true">
+                <depend id="41" type="2" difference="0" hardness="Strong"/>
+                <depend id="42" type="2" difference="0" hardness="Strong"/>
+                <depend id="46" type="2" difference="0" hardness="Strong"/>
+                <depend id="51" type="2" difference="0" hardness="Strong"/>
+                <depend id="75" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="41" name="Schéma des Différents Look Possible" color="#8cb6ce" meeting="false" start="2024-12-09" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true"/>
+            <task id="42" name="Schémas des Différentes Fonctions Envisagées" color="#8cb6ce" meeting="false" start="2024-12-09" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true">
+                <depend id="50" type="2" difference="0" hardness="Strong"/>
+            </task>
         </task>
-        <task id="13" uid="1289ec779cd2465c91b966d3ecc2ceaa" name="Premier look de l'ornithoptère" color="#8cb6ce" meeting="false" start="2023-12-05" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
-            <notes><![CDATA[
-                Réalistion de la comparaison entre la grille de compétence à acquérir et se les compétences que l'ornithoptère nous permet de valider. Réalisation d'un premier get sur le look de notre ornithoptère avec la finalisation des actions que doit réliser notre protoype ( attérir, décoller, ... )
-            ]]></notes>
+        <task id="23" name="Recherche de Documentations" color="#8cb6ce" meeting="false" start="2024-12-09" duration="2" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
+            <depend id="75" type="2" difference="0" hardness="Strong"/>
+            <task id="46" name="Le Vol des Oiseaux et leurs Charactéristiques" color="#8cb6ce" meeting="false" start="2024-12-09" duration="1" complete="0" thirdDate="2024-12-09" thirdDate-constraint="0" expand="true"/>
+            <task id="51" name="Biomimétisme" color="#8cb6ce" meeting="false" start="2024-12-09" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="47" type="2" difference="0" hardness="Strong"/>
+                <depend id="55" type="2" difference="0" hardness="Strong"/>
+                <depend id="56" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="47" name="Documentation sur la Réalisation de Différents Prototypes" color="#8cb6ce" meeting="false" start="2024-12-11" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="54" type="2" difference="0" hardness="Strong"/>
+                <depend id="55" type="2" difference="0" hardness="Strong"/>
+                <depend id="56" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="50" name="Législation à Respecter" color="#8cb6ce" meeting="false" start="2024-12-11" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="53" type="2" difference="0" hardness="Strong"/>
+            </task>
         </task>
-        <task id="15" uid="3eec297084de4698a164a5dc13748815" name="Finalisation du texte et de la bome" color="#8cb6ce" meeting="false" start="2023-12-12" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
-            <notes><![CDATA[
-                Finalisation du texte de présentation de notre projet avant de le soumettre au admins pour une validation de notre projet. Réalisation du début de la bome, permettant d'identifier les différents organes principaux de notre ornithoptère. Début de la plannification de notre gantt prévisionnel. 
-            ]]></notes>
+        <task id="52" name="Identification des Besoins de l'Ornithoptère" meeting="false" start="2025-01-15" duration="5" complete="0" expand="true">
+            <depend id="75" type="2" difference="0" hardness="Strong"/>
+            <task id="53" name="Le poids" color="#8cb6ce" meeting="false" start="2025-01-15" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="63" type="2" difference="0" hardness="Strong"/>
+                <depend id="64" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="54" name="L'aérodynamisme" color="#8cb6ce" meeting="false" start="2025-01-15" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="57" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="55" name="Moyen de Vol / Déplacement" color="#8cb6ce" meeting="false" start="2025-01-15" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="57" type="2" difference="0" hardness="Strong"/>
+                <depend id="81" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="56" name="Moyen de Pilotage" color="#8cb6ce" meeting="false" start="2025-01-15" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="60" type="2" difference="1" hardness="Strong"/>
+                <depend id="61" type="2" difference="1" hardness="Strong"/>
+                <depend id="62" type="2" difference="1" hardness="Strong"/>
+                <depend id="64" type="2" difference="0" hardness="Strong"/>
+                <depend id="81" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="57" name="Calcul de Portance du Prototype" color="#8cb6ce" meeting="false" start="2025-01-17" duration="3" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="81" type="2" difference="0" hardness="Strong"/>
+            </task>
         </task>
-        <task id="17" uid="896080d39aab43c3a7ddef1ed4312116" name="Début des recherches de documentation" color="#8cb6ce" meeting="false" start="2024-01-23" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
-            <notes><![CDATA[
-                Recherche sur les documentations de réalisation d'un ornithoptère. Ressources pour la réalisation de l'armature et du système de mécanique permettant le mouvement de l'ornithoptère. Recherche sur les côtes permettant de réaliser une envergure nécessaire pour porter le poids du prototype. 
-            ]]></notes>
+        <task id="58" name="Réalisation de la Liste de Matériel à Utiliser" color="#8cb6ce" meeting="false" start="2025-02-05" duration="6" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+            <depend id="80" type="2" difference="0" hardness="Strong"/>
+            <task id="60" name="Choix des Moteurs" color="#8cb6ce" meeting="false" start="2025-02-05" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="63" type="2" difference="0" hardness="Strong"/>
+                <depend id="64" type="2" difference="2" hardness="Strong"/>
+            </task>
+            <task id="61" name="Choix du Système Radio" color="#8cb6ce" meeting="false" start="2025-02-05" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="63" type="2" difference="0" hardness="Strong"/>
+                <depend id="64" type="2" difference="0" hardness="Strong"/>
+                <depend id="66" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="62" name="Choix du Microcontrôleur" color="#8cb6ce" meeting="false" start="2025-02-05" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="63" type="2" difference="0" hardness="Strong"/>
+                <depend id="64" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="63" name="Réalisation d'un Bilan Energétique" color="#8cb6ce" meeting="false" start="2025-02-26" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="64" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="64" name="Recherche des Composant pour une Carte Electronique" color="#8cb6ce" meeting="false" start="2025-03-19" duration="3" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="66" type="1" difference="0" hardness="Strong"/>
+                <depend id="68" type="2" difference="0" hardness="Strong"/>
+            </task>
         </task>
-        <task id="20" uid="738cf83faf4447e696499ef7a98e7376" name="Réalisation des premiers schéma et réalisation 3D" color="#8cb6ce" meeting="false" start="2024-01-23" duration="1" complete="0" thirdDate="2024-12-11" thirdDate-constraint="0" expand="true">
-            <notes><![CDATA[
-                Premier schéma de réalisation 3D, concernant les engrenages et les support permettant de faire bouger les ailes de l'ornithoptère. Puis recherche sur les différentes types de plumes d'un oiseaux, du poids, des mensuration et autre. Premiére tentative d'impression avec des couches très fines en PLA ( 0.02 / 0.01 / ... ) 
-            ]]></notes>
+        <task id="65" name="Développement du Prototype" meeting="false" start="2025-02-28" duration="9" complete="0" expand="true">
+            <task id="66" name="Réalisation de la Communication entre les 2 Antennes" color="#8cb6ce" meeting="false" start="2025-03-19" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+            <task id="67" name="Réalisation des Schémas Electrique" meeting="false" start="2025-05-21" duration="2" complete="0" expand="true">
+                <task id="68" name="Conception de la Carte Electronique" color="#8cb6ce" meeting="false" start="2025-05-21" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="75" name="Modélisation 3D Système de Vol (Simulation)" color="#8cb6ce" meeting="false" start="2025-02-28" duration="6" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true">
+                <depend id="70" type="2" difference="0" hardness="Strong"/>
+                <depend id="73" type="2" difference="0" hardness="Strong"/>
+                <depend id="74" type="2" difference="0" hardness="Strong"/>
+                <depend id="76" type="2" difference="0" hardness="Strong"/>
+                <depend id="78" type="2" difference="0" hardness="Strong"/>
+                <depend id="131" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="76" name="Assemblage Mécanique" color="#8cb6ce" meeting="false" start="2025-07-04" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+            <task id="69" name="Réalisation 3D" meeting="false" start="2025-06-23" duration="2" complete="0" expand="true">
+                <depend id="76" type="2" difference="0" hardness="Strong"/>
+                <task id="73" name="Conception des Ailes Articulées" color="#8cb6ce" meeting="false" start="2025-06-23" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+                <task id="74" name="Conception de l'Aileron Arrière" color="#8cb6ce" meeting="false" start="2025-06-23" duration="2" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+                <task id="131" name="Réalisation de l'Armature en 3D" color="#8cb6ce" meeting="false" start="2025-06-23" duration="1" complete="0" thirdDate="2025-01-15" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="70" name="Etude des Contraintes Mécanique" color="#8cb6ce" meeting="false" start="2025-06-23" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="22" uid="77ea5f84d4ee4e7885f2d27256007c58" name="Première impression des ailes" meeting="false" start="2025-02-05" duration="1" complete="0" expand="true"/>
-        <task id="23" uid="58c4ba58858749f3b5d22ed52ae825bc" name="Réalisation de la BOM" meeting="false" start="2024-12-11" duration="1" complete="0" expand="true"/>
+        <task id="77" name="Réalisation des Tests" meeting="false" start="2025-02-28" duration="7" complete="0" expand="true">
+            <task id="78" name="Test des Impressions 3D" color="#8cb6ce" meeting="false" start="2025-06-23" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+            <task id="80" name="Test Unitaire des Composants" color="#8cb6ce" meeting="false" start="2025-05-21" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+            <task id="81" name="Mesure de la Fréquence des Ailes" color="#8cb6ce" meeting="false" start="2025-02-28" duration="1" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="150" name="Réalisation du Premier Prototype" color="#8cb6ce" meeting="true" start="2025-07-09" duration="0" complete="0" thirdDate="2025-05-21" thirdDate-constraint="0" expand="true"/>
+        <task id="89" name="Réalisation d'un Power Point de Présentation du Projet" color="#8cb6ce" meeting="true" start="2025-07-09" duration="0" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+        <task id="84" name="Rédaction de la Notice Utilisateur" color="#8cb6ce" meeting="true" start="2025-08-13" duration="0" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
+        <task id="151" name="Réalisation du Prototype Final" color="#8cb6ce" meeting="true" start="2025-09-16" duration="0" complete="0" thirdDate="2025-05-21" thirdDate-constraint="0" expand="true"/>
+        <task id="83" name="Rédaction du Document de Présentation du Projet" color="#8cb6ce" meeting="true" start="2025-08-13" duration="0" complete="0" thirdDate="2025-02-28" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="LEBOURCH Alexandre" function="Default:0" contacts="" phone=""/>
@@ -80,9 +336,7 @@
         <resource id="3" name="YRIEIX Léa" function="Default:0" contacts="" phone=""/>
         <resource id="4" name="Groupe " function="Default:1" contacts="" phone=""/>
     </resources>
-    <allocations>
-        <allocation task-id="0" resource-id="4" function="Default:1" responsible="true" load="100.0"/>
-    </allocations>
+    <allocations/>
     <vacations/>
     <previous/>
     <roles roleset-name="Default"/>
