@@ -1,5 +1,5 @@
 from machine import Pin, SPI
-from nrf24l01 import NRF24L01
+from lib.nrf24l01 import NRF24L01
 from time import sleep
 import ujson
 

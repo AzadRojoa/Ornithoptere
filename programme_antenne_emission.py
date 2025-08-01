@@ -1,8 +1,6 @@
 from machine import Pin, SPI, ADC
-from nrf24l01 import NRF24L01
-from time import sleep
+from lib.nrf24l01 import NRF24L01
 import time
-
 # Configuration des broches SPI pour l'ESP32
 spi = SPI(1, baudrate=9600, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
 ce = Pin(26, Pin.OUT)
