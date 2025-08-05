@@ -1,4 +1,4 @@
-from lib.antenne import Antenne
+from antenne import Antenne
 from machine import Pin
 from time import sleep
 
@@ -19,13 +19,13 @@ def recevoir_paquets():
                 if valeur_3 == 4095:
                     print("Demande d'arrêt du moteur")
                     moteur_pin.off()
-                if valeur_3 == 0:
+                else:
                     print("Demande de marche du moteur")
                     moteur_pin.on()
-                else:
-                    print("Valeur ne correspond ni à 4095 ni à 0.")
             except ValueError:
                 print(f"Valeur invalide : {valeurs[1]} n'est pas un entier.")
 
 while True:
     recevoir_paquets()
+
+

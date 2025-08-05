@@ -1,5 +1,5 @@
 from machine import Pin, SPI, ADC
-from lib.nrf24l01 import NRF24L01
+from nrf24l01 import NRF24L01
 
 class Antenne:
     def __init__(self, mode='emetteur', address=b"2Node", channel=76, payload_size=32, spi_id=1, spi_baudrate=9600, spi_polarity=0, spi_phase=0, sck_pin=18, mosi_pin=23, miso_pin=19, ce_pin=26, csn_pin=27):
