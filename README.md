@@ -11,6 +11,7 @@ Ce projet permet de piloter un ornithoptère (ou autre dispositif) à l'aide de 
 ## 📄 Documentation technique
 
 - [Explication du code et architecture détaillée](./docs/code_explanation.md)
+- [Documentation des scripts de gestion et monitoring](./docs/scripts.md)
 
 ## 📚 Ressources
 
