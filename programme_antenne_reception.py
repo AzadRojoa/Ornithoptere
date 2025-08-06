@@ -5,12 +5,22 @@ from time import sleep
 antenne = Antenne(mode='recepteur')
 moteur_pin = Pin(5, Pin.OUT)
 
-def recevoir_paquets():
+def reception_paquets() -> None:
     message = antenne.receive()
     if message:
         chunk = str(message)
         print(f"Données reçues brutes : {chunk}")
-        chunk_clean = chunk.replace("b'", "").replace("X1:", "").replace("X2:", "").replace("Y1:", "").replace("Y2:", "").replace("Button1:", "").replace("Button2:", "").replace("'", "").strip()
+        chunk_clean = (
+            chunk.replace("b'", "")
+            .replace("X1:", "")
+            .replace("X2:", "")
+            .replace("Y1:", "")
+            .replace("Y2:", "")
+            .replace("Button1:", "")
+            .replace("Button2:", "")
+            .replace("'", "")
+            .strip()
+        )
         print(f"Données après nettoyage : {chunk_clean}")
         valeurs = chunk_clean.split(",")
         if len(valeurs) == 3:
@@ -26,6 +36,6 @@ def recevoir_paquets():
                 print(f"Valeur invalide : {valeurs[1]} n'est pas un entier.")
 
 while True:
-    recevoir_paquets()
+    reception_paquets()
 
 
