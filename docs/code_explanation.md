@@ -13,15 +13,16 @@ Ce projet permet de transmettre et recevoir des commandes pour piloter un ornith
 
 ## Structure du projet
 
-- `programme_antenne_emission.py` : Code principal pour l'émetteur. Lit les joysticks et boutons, envoie les données via la classe `Antenne`.
-- `programme_antenne_reception.py` : Code principal pour le récepteur. Reçoit les données, les interprète et contrôle un moteur.
-- `lib/antenne.py` : Classe `Antenne` pour gérer la communication radio (émission/réception) avec le NRF24L01.
-- `lib/components.py` : Classes pour abstraire les périphériques matériels :
+- `source/programme_antenne_emission.py` : Code principal pour l'émetteur. Lit les joysticks et boutons, envoie les données via la classe `Antenne`.
+- `source/programme_antenne_reception.py` : Code principal pour le récepteur. Reçoit les données, les interprète et contrôle un moteur.
+- `source/antenne.py` : Classe `Antenne` pour gérer la communication radio (émission/réception) avec le NRF24L01.
+- `source/components.py` : Classes pour abstraire les périphériques matériels :
   - `Joystick` : lecture de deux axes analogiques.
   - `Bouton` : gestion d'un bouton avec pull-up.
   - `ServoMoteur` : contrôle d'un servo-moteur via PWM.
-- `lib/nrf24l01.py` : Pilote bas niveau pour le module radio NRF24L01.
-- `lib/logger.py` : Classe `Logger` pour enregistrer des logs sur la carte.
+  - `Moteur` : contrôle d'un moteur via PWM.
+- `source/nrf24l01.py` : Pilote bas niveau pour le module radio NRF24L01.
+- `source/logger.py` : Classe `Logger` pour enregistrer des logs sur la carte.
 
 ## Utilisation
 
@@ -40,6 +41,11 @@ Ce projet permet de transmettre et recevoir des commandes pour piloter un ornith
 ### Exemple de log
 
 Utilisez la classe `Logger` pour enregistrer des événements ou erreurs dans un fichier texte sur la carte.
+
+## Scripts de gestion
+
+- `deploy.sh` : Automatisation du déploiement du code sur l'ESP (sélection du programme, upload, nettoyage des fichiers, renommage en main.py).
+- `start.sh` : Ouverture automatique d'une session tmux avec les terminaux série pour surveiller les deux ESP et faciliter le développement.
 
 ## Dépendances
 
