@@ -8,13 +8,12 @@ BT = Bouton(32)
 antenne = Antenne(mode='emetteur')
 
 def envoyer_message(message: bytes) -> bool:
-    try:
-        antenne.send(message)
+    result = antenne.send(message)
+    if result:
         print(f"Message envoyé : {message.decode()}")
-        return True
-    except OSError as e:
-        print(f"Erreur lors de l'envoi: {e}")
-        return False
+    else:
+        print("Erreur lors de l'envoi")
+    return result
 
 while True:
     x, y = J.read()

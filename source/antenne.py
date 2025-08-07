@@ -1,6 +1,10 @@
 from machine import Pin, SPI, ADC
 from nrf24l01 import NRF24L01
 from typing import Optional, Union
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class Antenne:
     """
@@ -73,10 +77,10 @@ class Antenne:
             message = message.encode('utf-8')
         try:
             self.nrf.send(message)
-            print("Message reçu (ACK)")
+            # logger.info("Message reçu (ACK)")
             return True
         except OSError:
-            print("Erreur d'envoi (pas d'ACK)")
+            logger.error("Erreur d'envoi (pas d'ACK)")
             return False
 
     def receive(self) -> Optional[str]:

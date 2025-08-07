@@ -1,16 +1,22 @@
 from machine import Pin, ADC, PWM
 from typing import Tuple
 
+# INPUTS
+
 class Joystick:
-    def __init__(self, pin_x: int, pin_y: int, attenuation: int = ADC.ATTN_11DB) -> None:
+    def __init__(self, pin_x: int, pin_y: int, pin_bt: int, attenuation: int = ADC.ATTN_11DB) -> None:
         self._x: ADC = ADC(Pin(pin_x))
         self._x.atten(attenuation)
         self._y: ADC = ADC(Pin(pin_y))
         self._y.atten(attenuation)
+        self._bt: Pin = Pin(pin_bt, Pin.IN, Pin.PULL_UP)
 
     def read(self) -> Tuple[int, int]:
-        return (self._x.read(), self._y.read())
+        return (self._x.read(), self._y.read(), self.bt)
 
+    def __str__(self) -> str:
+        return f"Joystick(X={self.x}, Y={self.y}, Button={self.bt})"        
+        
     @property
     def x(self) -> int:
         return self._x.read()
@@ -18,17 +24,30 @@ class Joystick:
     @property
     def y(self) -> int:
         return self._y.read()
+    
+    @property
+    def bt(self) -> int:
+        return self._bt.value()
 
 class Bouton:
     def __init__(self, pin: int, pull: int = Pin.PULL_UP) -> None:
-        self.pin: Pin = Pin(pin, Pin.IN, pull)
+        self._pin: Pin = Pin(pin, Pin.IN, pull)
 
     def is_pressed(self) -> bool:
-        return self.pin.value() == 0
+        return self._pin.value() == 0
+
+    def __str__(self) -> str:
+        return f"Bouton(pin={self.pin}, value={self.value})"
 
     @property
     def value(self) -> int:
-        return self.pin.value()
+        return self._pin.value()
+    
+    @property
+    def pin(self) -> int:
+        return self._pin.id()
+
+# OUTPUTS
 
 class ServoMoteur:
     def __init__(self, pin: int, freq: int = 50, min_us: int = 500, max_us: int = 2500) -> None:
@@ -83,3 +102,11 @@ class Moteur:
     @frequency.setter
     def frequency(self, value: int) -> None:
         self.pwm.freq(value)
+
+    @property
+    def speed(self) -> int:
+        return int(self._duty * 100 / 1023)
+    
+    @speed.setter
+    def speed(self, value: int) -> None:
+        self.set_speed(value)
