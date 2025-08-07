@@ -93,7 +93,8 @@ class Moteur:
 
     @duty.setter
     def duty(self, value: int) -> None:
-        self.set_speed(value)
+        self._duty = value
+        self.pwm.duty(self._duty)
 
     @property
     def frequency(self) -> int:
@@ -105,7 +106,7 @@ class Moteur:
 
     @property
     def speed(self) -> int:
-        return int(self._duty * 100 / 1023)
+        return round(self._duty * 100 / 1023)
     
     @speed.setter
     def speed(self, value: int) -> None:
