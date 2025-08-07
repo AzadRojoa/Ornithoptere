@@ -1,11 +1,13 @@
-from antenne import Antenne
 import time
 
-antenne = Antenne(mode='recepteur')
+from antenne import Antenne
+
+antenne = Antenne(mode="recepteur")
 received = []
 start_time = None
 
 NB_MESSAGES = 1000
+
 
 def recevoir_benchmark():
     global start_time
@@ -33,6 +35,7 @@ def recevoir_benchmark():
         f.write(f"Average latency: {avg_latency:.6f} s\n")
         for r in received:
             f.write(f"{r[0]},{r[1]},{r[2]},{r[3]}\n")
+
 
 if __name__ == "__main__":
     recevoir_benchmark()

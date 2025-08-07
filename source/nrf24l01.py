@@ -1,8 +1,8 @@
 """NRF24L01 driver for MicroPython
 """
 
-from micropython import const
 import utime
+from micropython import const
 
 # nRF24L01+ registers
 CONFIG = const(0x00)
@@ -250,4 +250,3 @@ class NRF24L01:
         status = self.reg_write(STATUS, RX_DR | TX_DS | MAX_RT)
         self.reg_write(CONFIG, self.reg_read(CONFIG) & ~PWR_UP)
         return 1 if status & TX_DS else 2
-

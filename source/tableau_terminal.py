@@ -3,6 +3,7 @@ try:
 except ImportError:
     _thread = None
 
+
 class TableauTerminal:
     def __init__(self, data, refresh=0.5):
         self._data = data.copy()
@@ -11,9 +12,11 @@ class TableauTerminal:
         self._lock = None
         if _thread:
             import time
+
             self._lock = _thread.allocate_lock()
         else:
             import threading
+
             self._lock = threading.Lock()
 
     @property
@@ -36,10 +39,12 @@ class TableauTerminal:
             if self._lock:
                 self._lock.release()
             # Efface l'écran et remet le curseur en haut
-            print('\033[2J\033[H', end='')
+            print("\033[2J\033[H", end="")
             keys = list(data.keys())
             values = [str(data[k]) for k in keys]
-            col_widths = [max(len(str(k)), len(str(v))) + 2 for k, v in zip(keys, values)]
+            col_widths = [
+                max(len(str(k)), len(str(v))) + 2 for k, v in zip(keys, values)
+            ]
             line = "+"
             for w in col_widths:
                 line += "-" * w + "+"
@@ -55,6 +60,7 @@ class TableauTerminal:
             print(line)
             print("(Ctrl+C pour quitter)")
             import time
+
             time.sleep(self._refresh)
 
     def start(self):
@@ -63,6 +69,7 @@ class TableauTerminal:
             _thread.start_new_thread(self._afficher_tableau, ())
         else:
             import threading
+
             t = threading.Thread(target=self._afficher_tableau)
             t.daemon = True
             t.start()

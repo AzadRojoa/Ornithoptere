@@ -1,10 +1,12 @@
-from antenne import Antenne
-from machine import Pin
 from time import sleep
 
-antenne = Antenne(mode='recepteur')
+from antenne import Antenne
+from machine import Pin
+
+antenne = Antenne(mode="recepteur")
 moteur1_pin = Pin(5, Pin.OUT)
 moteur2_pin = Pin(17, Pin.OUT)
+
 
 def reception_paquets() -> None:
     message = antenne.receive()
@@ -25,7 +27,6 @@ def reception_paquets() -> None:
     elif message:
         print(f"Données reçues non dict : {message}")
 
+
 while True:
     reception_paquets()
-
-

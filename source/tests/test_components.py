@@ -1,43 +1,59 @@
-import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import unittest
 from unittest.mock import MagicMock, patch
+
 
 # Mock classes to replace machine.Pin, ADC, PWM
 class MockPin:
     IN = 0
     PULL_UP = 1
+
     def __init__(self, pin, mode=None, pull=None):
         self._id = pin
         self._value = 1
+
     def value(self):
         return self._value
+
     def id(self):
         return self._id
 
+
 class MockADC:
     ATTN_11DB = 0
+
     def __init__(self, pin):
         self._pin = pin
+
     def atten(self, attn):
         pass
+
     def read(self):
         return 42
+
 
 class MockPWM:
     def __init__(self, pin, freq=50):
         self._freq = freq
         self._duty = 0
+
     def duty(self, value):
         self._duty = value
+
     def freq(self, value=None):
         if value is not None:
             self._freq = value
         return self._freq
 
-with patch.dict('sys.modules', {'machine': MagicMock(Pin=MockPin, ADC=MockADC, PWM=MockPWM)}):
-    from components import Joystick, Bouton, ServoMoteur, Moteur
+
+with patch.dict(
+    "sys.modules", {"machine": MagicMock(Pin=MockPin, ADC=MockADC, PWM=MockPWM)}
+):
+    from components import Bouton, Joystick, Moteur, ServoMoteur
+
 
 class TestComponents(unittest.TestCase):
     def test_joystick(self):
@@ -73,5 +89,6 @@ class TestComponents(unittest.TestCase):
         m.speed = 75
         self.assertEqual(m.speed, 75)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -1,10 +1,14 @@
-from machine import Pin, ADC, PWM
 from typing import Tuple
+
+from machine import ADC, PWM, Pin
 
 # INPUTS
 
+
 class Joystick:
-    def __init__(self, pin_x: int, pin_y: int, pin_bt: int, attenuation: int = ADC.ATTN_11DB) -> None:
+    def __init__(
+        self, pin_x: int, pin_y: int, pin_bt: int, attenuation: int = ADC.ATTN_11DB
+    ) -> None:
         self._x: ADC = ADC(Pin(pin_x))
         self._x.atten(attenuation)
         self._y: ADC = ADC(Pin(pin_y))
@@ -15,8 +19,8 @@ class Joystick:
         return (self._x.read(), self._y.read(), self.bt)
 
     def __str__(self) -> str:
-        return f"Joystick(X={self.x}, Y={self.y}, Button={self.bt})"        
-        
+        return f"Joystick(X={self.x}, Y={self.y}, Button={self.bt})"
+
     @property
     def x(self) -> int:
         return self._x.read()
@@ -24,10 +28,11 @@ class Joystick:
     @property
     def y(self) -> int:
         return self._y.read()
-    
+
     @property
     def bt(self) -> int:
         return self._bt.value()
+
 
 class Bouton:
     def __init__(self, pin: int, pull: int = Pin.PULL_UP) -> None:
@@ -42,15 +47,19 @@ class Bouton:
     @property
     def value(self) -> int:
         return self._pin.value()
-    
+
     @property
     def pin(self) -> int:
         return self._pin.id()
 
+
 # OUTPUTS
 
+
 class ServoMoteur:
-    def __init__(self, pin: int, freq: int = 50, min_us: int = 500, max_us: int = 2500) -> None:
+    def __init__(
+        self, pin: int, freq: int = 50, min_us: int = 500, max_us: int = 2500
+    ) -> None:
         self.pwm: PWM = PWM(Pin(pin), freq=freq)
         self.min_us: int = min_us
         self.max_us: int = max_us
@@ -77,6 +86,7 @@ class ServoMoteur:
     @deg.setter
     def deg(self, value: int) -> None:
         self.angle(value)
+
 
 class Moteur:
     def __init__(self, pin: int, freq: int = 1000) -> None:
@@ -107,7 +117,7 @@ class Moteur:
     @property
     def speed(self) -> int:
         return round(self._duty * 100 / 1023)
-    
+
     @speed.setter
     def speed(self, value: int) -> None:
         self.set_speed(value)

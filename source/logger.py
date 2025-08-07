@@ -1,5 +1,6 @@
 import time
 
+
 class Logger:
     def __init__(self, filename: str = "log.txt") -> None:
         self.filename = filename
