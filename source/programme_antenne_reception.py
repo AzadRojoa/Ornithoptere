@@ -8,35 +8,22 @@ moteur2_pin = Pin(17, Pin.OUT)
 
 def reception_paquets() -> None:
     message = antenne.receive()
-    if message:
-        chunk = str(message)
-        print(f"Données reçues brutes : {chunk}")
-        chunk_clean = (
-            chunk.replace("b'", "")
-            .replace("X1:", "")
-            .replace("X2:", "")
-            .replace("Y1:", "")
-            .replace("Y2:", "")
-            .replace("Button1:", "")
-            .replace("Button2:", "")
-            .replace("'", "")
-            .strip()
-        )
-        print(f"Données après nettoyage : {chunk_clean}")
-        valeurs = chunk_clean.split(",")
-        if len(valeurs) == 3:
-            try:
-                valeur_3 = int(valeurs[1].strip())
-                if valeur_3 == 4095:
-                    print("Demande d'arrêt du moteur")
-                    moteur1_pin.off()
-                    moteur2_pin.off()
-                else:
-                    print("Demande de marche du moteur")
-                    moteur1_pin.on()
-                    moteur2_pin.on()
-            except ValueError:
-                print(f"Valeur invalide : {valeurs[1]} n'est pas un entier.")
+    if isinstance(message, dict):
+        print(f"Données reçues : {message}")
+        x = message.get("X1")
+        y = message.get("Y1")
+        btn = message.get("Button1")
+        if btn is not None:
+            if btn == 1:
+                print("Demande d'arrêt du moteur")
+                moteur1_pin.off()
+                moteur2_pin.off()
+            else:
+                print("Demande de marche du moteur")
+                moteur1_pin.on()
+                moteur2_pin.on()
+    elif message:
+        print(f"Données reçues non dict : {message}")
 
 while True:
     reception_paquets()
