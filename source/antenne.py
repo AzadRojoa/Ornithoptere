@@ -1,7 +1,8 @@
 from machine import Pin, SPI, ADC
 from nrf24l01 import NRF24L01
-from typing import Optional, Union
+from typing import Optional, Union, Dict
 import logging
+import ujson
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -66,14 +67,17 @@ class Antenne:
             self.nrf.set_channel(self._channel)
             self.nrf.start_listening()
 
-    def send(self, message: Union[str, bytes]) -> bool:
+    def send(self, message: Union[str, bytes, Dict]) -> bool:
         """
         Envoie un message via l'antenne (mode émetteur uniquement).
+        Accepte str, bytes ou dict. Les dict sont encodés en JSON avec identifiant 'J'.
         Retourne True si ACK reçu, False sinon.
         """
         if self._mode != 'emetteur':
             raise RuntimeError("Cannot send in recepteur mode")
-        if isinstance(message, str):
+        if isinstance(message, dict):
+            message = b'J' + ujson.dumps(message).encode('utf-8')
+        elif isinstance(message, str):
             message = message.encode('utf-8')
         try:
             self.nrf.send(message)
@@ -83,13 +87,22 @@ class Antenne:
             logger.error("Erreur d'envoi (pas d'ACK)")
             return False
 
-    def receive(self) -> Optional[str]:
+    def receive(self) -> Optional[Union[str, dict]]:
         """
         Reçoit un message via l'antenne (mode récepteur uniquement).
-        Retourne le message décodé ou None si rien n'est reçu.
+        Si le message commence par 'J', le décode en dict (JSON).
+        Retourne le message décodé (str ou dict) ou None si rien n'est reçu.
         """
         if self._mode != 'recepteur':
             raise RuntimeError("Cannot receive in emetteur mode")
         if self.nrf.any():
-            return self.nrf.recv().decode('utf-8')
+            raw = self.nrf.recv()
+            if raw.startswith(b'J'):
+                try:
+                    return ujson.loads(raw[1:].decode('utf-8'))
+                except Exception as e:
+                    logger.error(f"Erreur de décodage JSON: {e}")
+                    return None
+            else:
+                return raw.decode('utf-8')
         return None
