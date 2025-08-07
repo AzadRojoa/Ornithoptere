@@ -28,7 +28,7 @@ git commit -m "Votre message"
 **Solutions :**
 1. **Voir les erreurs détaillées :**
    ```bash
-   ./run-tests.sh
+   ./scripts/run-tests.sh
    ```
 
 2. **Corriger les erreurs dans votre code**

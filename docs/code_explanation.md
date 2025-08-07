@@ -44,8 +44,10 @@ Utilisez la classe `Logger` pour enregistrer des événements ou erreurs dans un
 
 ## Scripts de gestion
 
-- `deploy.sh` : Automatisation du déploiement du code sur l'ESP (sélection du programme, upload, nettoyage des fichiers, renommage en main.py).
-- `start.sh` : Ouverture automatique d'une session tmux avec les terminaux série pour surveiller les deux ESP et faciliter le développement.
+- `scripts/deploy.sh` : Automatisation du déploiement du code sur l'ESP (sélection du programme, upload, nettoyage des fichiers, renommage en main.py).
+- `scripts/start.sh` : Ouverture automatique d'une session tmux avec les terminaux série pour surveiller les deux ESP et faciliter le développement.
+- `scripts/setup-precommit.sh` : Installation automatique de l'environnement de développement avec pre-commit.
+- `scripts/run-tests.sh` : Exécution des tests unitaires.
 
 ## Dépendances
 

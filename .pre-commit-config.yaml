@@ -37,7 +37,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: ./run-tests.sh
+        entry: ./scripts/run-tests.sh
         language: system
         files: \.py$
         pass_filenames: false

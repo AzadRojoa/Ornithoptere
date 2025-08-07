@@ -15,7 +15,7 @@ git clone [URL_DU_PROJET]
 cd Ornithoptere
 
 # 2. Installation complète en une commande
-./setup-precommit.sh
+./scripts/setup-precommit.sh
 
 # 3. À chaque session de travail
 source .venv/bin/activate
@@ -72,7 +72,7 @@ pre-commit install
 
 - **❌ Tests qui échouent**
   ```bash
-  ./run-tests.sh  # Voir les erreurs
+  ./scripts/run-tests.sh  # Voir les erreurs
   # Corriger les erreurs puis recommiter
   ```
 
