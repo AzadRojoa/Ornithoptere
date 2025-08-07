@@ -5,9 +5,9 @@ class Gamepad:
     def read(self) -> dict:
         values = {}
         for name, component in self.inputs.items():
-            if hasattr(component, 'read'):
+            if hasattr(component, "read"):
                 values[name] = component.read()
-            elif hasattr(component, 'value'):
+            elif hasattr(component, "value"):
                 values[name] = component.value
             else:
                 values[name] = str(component)
