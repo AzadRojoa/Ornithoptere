@@ -1,0 +1,8 @@
+# Dépendances Python pour la simulation PC
+pyserial>=3.5
+
+# Note: Les autres modules utilisés sont soit:
+# - Standards Python (time, os, sys, json, logging, queue, threading, typing)
+# - Spécifiques MicroPython (machine, micropython, utime, ujson, _thread)
+# - Internes au projet (components, gamepad, antenne, etc.)
+# - Pour le développement, voir requirements-dev.txt

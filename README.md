@@ -2,32 +2,52 @@
 
 Ce projet permet de piloter un ornithoptère (ou autre dispositif) à l'aide de modules radio NRF24L01 et d'un microcontrôleur compatible MicroPython (ESP32, ESP8266, etc).
 
-## ⚠️ **Important pour tous les développeurs**
+---
 
-Ce projet utilise **pre-commit** pour maintenir la qualité du code. À chaque `git commit`, votre code sera automatiquement formaté, vérifié et testé.
+## 🚀 **DÉMARRAGE ULTRA-RAPIDE**
 
-**📋 Configuration requise :** Suivez le [guide de setup](./docs/setup.md) avant de commencer à développer.
+```bash
+git clone [URL_DU_PROJET]
+cd Ornithoptere
+./install.sh
+```
 
-## 🚀 Lancer le projet
-
-1. Suivez le guide de configuration dans [setup.md](./docs/setup.md) pour installer les dépendances et configurer l'environnement de développement.
-2. Connectez vos modules et microcontrôleurs selon le schéma proposé.
-3. Déployez le code sur vos cartes à l'aide des scripts dans le dossier `scripts/`.
-
-## 📄 Documentation technique
-
-- [Explication du code et architecture détaillée](./docs/code_explanation.md)
-- [Documentation des scripts de gestion et monitoring](./docs/scripts.md)
-
-## 📚 Ressources
-
-- [Guide de configuration et installation](./docs/setup.md) ← **Débutez ici**
-- [Documentation MicroPython](https://docs.micropython.org/en/latest/reference/repl.html)
-
-## 🔌 Schéma de l'ESP32
-
-![Pinout diagram](./docs/pinout.png)
+📖 **[Guide complet pour débutants](docs/quickstart.md)**
 
 ---
 
-Pour toute question sur le fonctionnement interne, consultez la documentation technique ci-dessus.
+## 📚 Documentation
+
+- **[📖 Index de la documentation](docs/README.md)** ← Commencez ici
+- **[🚀 Guide de démarrage rapide](docs/quickstart.md)** ← Pour débuter
+- **[🔧 Configuration avancée](docs/setup.md)** ← Pour développeurs
+- **[💻 Mode simulation PC](docs/simulation.md)** ← Tester sans ESP32
+- **[🛠️ Scripts et outils](docs/scripts.md)** ← Automatisation
+- **[🔍 Dépannage](docs/TROUBLESHOOTING.md)** ← Résoudre les problèmes
+
+---
+
+## 🎮 Utilisation rapide
+
+### Mode simulation (recommandé pour débuter)
+```bash
+source .venv/bin/activate
+# Changez SIMULATION = True dans vos programmes .py
+./simulation_pc/creer_ports_serie.sh  # Terminal 1
+python3 source/programme_antenne_emission.py    # Terminal 2
+python3 source/programme_antenne_reception.py   # Terminal 3
+```
+
+### Mode ESP32 réel
+```bash
+source .venv/bin/activate
+# Changez SIMULATION = False dans vos programmes .py
+./scripts/deploy.sh   # Déployer sur ESP32
+./scripts/start.sh    # Surveiller les ESP32
+```
+
+---
+
+## 🔌 Schéma de l'ESP32
+
+![Pinout diagram](docs/pinout.png)

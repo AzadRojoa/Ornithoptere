@@ -1,27 +1,34 @@
-# 🔧 Guide de configuration - Ornithoptère
+# 🔧 Configuration avancée - Ornithoptère
 
-Ce guide vous accompagne dans la configuration complète de l'environnement de développement pour le projet Ornithoptère.
+Ce guide s'adresse aux développeurs qui souhaitent une configuration personnalisée ou comprendre les détails techniques.
+
+> **💡 Débutants :** Utilisez plutôt le [guide de démarrage rapide](quickstart.md)
 
 ---
 
 ## 🚀 Installation rapide
 
 <details>
-<summary><strong>📦 Pour les pressés - Installation automatique</strong></summary>
+<summary><strong>📦 Installation automatique (recommandée)</strong></summary>
 
 ```bash
-# 1. Cloner le projet (si pas encore fait)
 git clone [URL_DU_PROJET]
 cd Ornithoptere
-
-# 2. Installation complète en une commande
-./scripts/setup-precommit.sh
-
-# 3. À chaque session de travail
-source .venv/bin/activate
+./install.sh     # ← Solution tout-en-un
 ```
 
-**C'est tout !** Vous pouvez maintenant développer et commiter normalement.
+**📖 Guide complet :** [docs/quickstart.md](quickstart.md)
+
+</details>
+
+<details>
+<summary><strong>🛠️ Installation développeur (plus de contrôle)</strong></summary>
+
+```bash
+git clone [URL_DU_PROJET]
+cd Ornithoptere
+./scripts/setup-precommit.sh    # Installation environnement dev seulement
+```
 
 </details>
 
@@ -172,10 +179,25 @@ tmux
 
 ---
 
+## 💻 Alternative : Mode simulation PC
+
+**Nouveau !** Vous pouvez maintenant développer et tester sans ESP32 grâce au mode simulation.
+
+📖 **Voir le guide complet :** [Mode simulation PC](./simulation.md)
+
+**Avantages :**
+- ✅ Testez votre code sans hardware
+- ✅ Débug plus facile avec messages visibles
+- ✅ Développement plus rapide
+
+---
+
 ## 📚 Liens et ressources
 
-- [Documentation technique du projet](./code_explanation.md)
-- [Documentation des scripts](./scripts.md)
+- [Documentation technique du projet](code_explanation.md)
+- [Documentation des scripts](scripts.md)
+- [Liste des dépendances](dependencies.md) - Liste complète pour réinstallation
+- [Mode simulation PC](simulation.md) - Guide détaillé
 - [MicroPython REPL docs](https://docs.micropython.org/en/latest/reference/repl.html)
 - [tmux Cheat Sheet](https://github.com/rothgar/awesome-tmux)
 - [screen User Guide](https://www.gnu.org/software/screen/manual/)

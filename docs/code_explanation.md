@@ -2,6 +2,14 @@
 
 Ce projet permet de transmettre et recevoir des commandes pour piloter un ornithoptère (ou tout autre dispositif) à l'aide de modules radio NRF24L01 et d'un microcontrôleur compatible MicroPython (ESP32, ESP8266, etc).
 
+## 📖 Documentation complète
+
+- 🚀 [Guide de démarrage](quickstart.md) - Installation et première utilisation
+- 🔧 [Configuration avancée](setup.md) - Installation et configuration détaillée
+- 💻 [Mode simulation PC](simulation.md) - Testez sans ESP32 !
+- 🔧 [Scripts et outils](scripts.md) - Automatisation du déploiement
+- 🛠️ [Dépannage](TROUBLESHOOTING.md) - Résolution de problèmes
+
 ## Fonctionnalités
 
 - Lecture de deux joysticks analogiques et de deux boutons.
@@ -10,6 +18,7 @@ Ce projet permet de transmettre et recevoir des commandes pour piloter un ornith
 - Contrôle d'un moteur via la réception des commandes.
 - Gestion de logs sur la carte.
 - Abstraction des périphériques (joystick, bouton, servo-moteur) via des classes dédiées.
+- **Mode simulation PC** : Testez sans ESP32 en utilisant des ports série virtuels.
 
 ## Structure du projet
 

@@ -48,7 +48,23 @@ Ce script exécute tous les tests unitaires du projet.
 **Usage :**
 ```bash
 ./scripts/run-tests.sh
-``` scripts : deploy.sh & start.sh
+```
+
+## scripts/check-dependencies.sh
+
+Ce script vérifie que toutes les dépendances nécessaires sont installées et configurées correctement. Il affiche un rapport détaillé de l'état du système et suggère les corrections nécessaires.
+
+**Usage :**
+```bash
+./scripts/check-dependencies.sh
+```
+
+**Fonctionnalités :**
+- Vérification des dépendances système (python3, git, tmux, socat, etc.)
+- Contrôle des packages Python globaux et dans l'environnement virtuel
+- Vérification de la configuration pre-commit
+- Test des imports principaux du projet
+- Rapport coloré avec suggestions d'installation scripts : deploy.sh & start.sh
 
 ## deploy.sh
 
