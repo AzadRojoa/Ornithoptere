@@ -1,21 +1,30 @@
 from antenne import Antenne
 from components import Joystick, Bouton
 import time
+from tableau_terminal import TableauTerminal
+from gamepad import Gamepad
 
-J = Joystick(36, 39, 32)
+inputs = {
+    "J1": Joystick(36, 39, 32),
+    "J2": Joystick(33, 34, 35)
+}
+
+data = {
+    "Nom": "emetteur",
+    "message envoyé": False,
+    "Message": "Coucou, ceci est un texte long"
+}
 
 antenne = Antenne(mode='emetteur')
+gamepad = Gamepad(inputs)
+tableau = TableauTerminal(data)
+tableau.start()
 
-def envoyer_message(message) -> bool:
-    result = antenne.send(message)
-    if result:
-        print(f"Message envoyé : {message}")
-    else:
-        print("Erreur lors de l'envoi")
-    return result
-
-while True:
-    x, y, btn_value = J.read()
-    message1 = {"X1": x, "Y1": y, "Button1": btn_value}
-    envoyer_message(message1)
-    time.sleep(0.01)
+try:
+    while True:
+        data["message envoyé"] = antenne.send(gamepad.read())
+        tableau.data = data
+        time.sleep(0.5)
+except KeyboardInterrupt:
+    tableau.stop()
+    print("\nArrêt du test.")
