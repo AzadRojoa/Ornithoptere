@@ -18,7 +18,7 @@ cd Ornithoptere
 
 ## 📚 Documentation
 
-- **[📖 Index de la documentation](docs/README.md)** ← Commencez ici
+- **[📖 Index de la documentation](docs/Index.md)** ← Commencez ici
 - **[🚀 Guide de démarrage rapide](docs/quickstart.md)** ← Pour débuter
 - **[🔧 Configuration avancée](docs/setup.md)** ← Pour développeurs
 - **[💻 Mode simulation PC](docs/simulation.md)** ← Tester sans ESP32
