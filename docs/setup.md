@@ -1,11 +1,104 @@
+# 🔧 Guide de configuration - Ornithoptère
 
-# 🔧 Configuration de l'environnement ESP32 avec tmux, screen, mpfshell, venv
+Ce guide vous accompagne dans la configuration complète de l'environnement de développement pour le projet Ornithoptère.
 
 ---
 
-## 📦 Dépendances à installer
+## 🚀 Installation rapide
 
-Ouvre un terminal et exécute :
+<details>
+<summary><strong>📦 Pour les pressés - Installation automatique</strong></summary>
+
+```bash
+# 1. Cloner le projet (si pas encore fait)
+git clone [URL_DU_PROJET]
+cd Ornithoptere
+
+# 2. Installation complète en une commande
+./setup-precommit.sh
+
+# 3. À chaque session de travail
+source .venv/bin/activate
+```
+
+**C'est tout !** Vous pouvez maintenant développer et commiter normalement.
+
+</details>
+
+---
+
+## 🛠️ Configuration de l'environnement de développement
+
+### Pre-commit - Contrôle qualité automatique
+
+Ce projet utilise **pre-commit** pour vérifier automatiquement votre code avant chaque commit :
+- ✨ **Formatage automatique** (Black, isort)
+- 🔍 **Vérification du style** (flake8)
+- 🧪 **Exécution des tests** (pytest)
+
+<details>
+<summary><strong>Installation manuelle de pre-commit</strong></summary>
+
+```bash
+# Créer l'environnement virtuel
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Installer les dépendances
+pip install -r requirements-dev.txt
+
+# Installer les hooks pre-commit
+pre-commit install
+```
+
+</details>
+
+<details>
+<summary><strong>🔧 Dépannage pre-commit</strong></summary>
+
+**Problèmes courants :**
+
+- **❌ "Command not found: pre-commit"**
+  ```bash
+  source .venv/bin/activate
+  ```
+
+- **❌ Commit échoue avec "files were modified"**
+  C'est normal ! Pre-commit a formaté votre code :
+  ```bash
+  git add .
+  git commit -m "Votre message"
+  ```
+
+- **❌ Tests qui échouent**
+  ```bash
+  ./run-tests.sh  # Voir les erreurs
+  # Corriger les erreurs puis recommiter
+  ```
+
+**Commandes utiles :**
+```bash
+# Tester tous les hooks
+pre-commit run --all-files
+
+# Tester un hook spécifique
+pre-commit run black
+pre-commit run pytest
+
+# En urgence (non recommandé)
+git commit --no-verify
+```
+
+Consultez le [guide de dépannage détaillé](./TROUBLESHOOTING.md) pour plus d'aide.
+
+</details>
+
+---
+
+## 🖥️ Configuration ESP32/ESP8266
+
+<details>
+<summary><strong>📦 Dépendances système requises</strong></summary>
 
 ```bash
 sudo apt update
@@ -18,96 +111,71 @@ pip install mpfshell
 > sudo apt install python3-pip
 > ```
 
----
+</details>
 
-## 🧪 Création de l'environnement virtuel Python
+<details>
+<summary><strong>🖥️ Utiliser screen pour se connecter à l'ESP32</strong></summary>
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
----
-
-## 🖥️ Utiliser `screen` pour se connecter à l’ESP32
-
-Liste les ports disponibles :
+**Lister les ports disponibles :**
 ```bash
 ls /dev/ttyUSB*
 ```
 
-Puis connecte-toi à l’ESP32 (remplace le port si besoin) :
+**Se connecter à l'ESP32 :**
 ```bash
 screen /dev/ttyUSB0 115200
 ```
 
-### 🛑 Raccourcis utiles dans `screen`
+**Raccourcis utiles dans screen :**
+| Action | Raccourci |
+|--------|-----------|
+| Quitter screen | `Ctrl + A`, puis `K`, puis `Y` |
+| Détacher | `Ctrl + A`, puis `D` |
+| Revenir | `screen -r` |
 
-| Action                   | Raccourci clavier                 |
-|--------------------------|-----------------------------------|
-| Quitter `screen`         | `Ctrl + A`, puis `K`, puis `Y`    |
-| Détacher (`detach`)      | `Ctrl + A`, puis `D`              |
-| Revenir dans `screen`    | `screen -r`                       |
+</details>
 
----
+<details>
+<summary><strong>🪟 Utiliser tmux pour surveiller plusieurs ESP</strong></summary>
 
-## 🪟 Utiliser `tmux` pour spliter l'écran en 3 panneaux
-
-### ▶️ Lancer `tmux`
-
+**Lancer tmux :**
 ```bash
 tmux
 ```
 
-### ✂️ Spliter les fenêtres
+**Diviser l'écran :**
+| Action | Raccourci |
+|--------|-----------|
+| Split horizontal (haut/bas) | `Ctrl + B`, puis `"` |
+| Split vertical (gauche/droite) | `Ctrl + B`, puis `%` |
+| Naviguer entre panneaux | `Ctrl + B`, puis flèches |
+| Activer la souris | `tmux set -g mouse on` |
 
-| Action                            | Raccourci                          |
-|-----------------------------------|------------------------------------|
-| Split horizontal (haut/bas)       | `Ctrl + B`, puis "%"               |
-| Split vertical (gauche/droite)    | `Ctrl + B`, puis "\"              |
-
-> 💡 Tu peux inverser les deux pour ton besoin :
-> - `Ctrl + B`, puis `"` → Divise horizontalement (1 ligne en haut, 1 en bas)
-> - Sélectionne le **haut**, puis `Ctrl + B`, `%` → Divise verticalement
-
----
-
-### 🔀 Naviguer entre les panneaux
-
-| Action                               | Raccourci                          |
-|--------------------------------------|------------------------------------|
-| Changer de panneau                   | `Ctrl + B`, puis flèches (← ↑ ↓ →) |
-| Fermer un panneau                    | `exit` ou `Ctrl + D`               |
-| Activer la navigation avec la souris | `tmux set -g mouse on`               |
-
-
----
-
-### 🛑 Quitter tmux
-
-| Action           | Commande              |
-|------------------|-----------------------|
-| Détacher         | `Ctrl + B`, puis `D`  |
-| Rejoindre        | `tmux attach`         |
-| Fermer tous      | `exit` dans chaque panneau ou `Ctrl + D` |
-
----
-
-## 📁 Exemple de mise en page pour ESP32
-
+**Mise en page recommandée :**
 ```
 +-------------------------+-------------------------+
-| Terminal série USB0    | Terminal série USB1     |
-| (ex: réception)         | (ex: émission)          |
+| Terminal série USB0     | Terminal série USB1     |
+| (réception)            | (émission)              |
 +--------------------------------------------------+
-| Terminal libre pour commandes mpfshell, git etc. |
+| Terminal libre pour git, mpfshell, etc.         |
 +--------------------------------------------------+
 ```
 
+**Raccourcis tmux :**
+| Action | Raccourci |
+|--------|-----------|
+| Détacher | `Ctrl + B`, puis `D` |
+| Rejoindre | `tmux attach` |
+| Fermer panneau | `exit` ou `Ctrl + D` |
+
+</details>
+
 ---
 
-## 📘 Liens utiles
+## 📚 Liens et ressources
 
+- [Documentation technique du projet](./code_explanation.md)
+- [Documentation des scripts](./scripts.md)
 - [MicroPython REPL docs](https://docs.micropython.org/en/latest/reference/repl.html)
-- [tmux Cheat Sheet (GitHub)](https://github.com/rothgar/awesome-tmux)
-- [screen User Guide (GNU)](https://www.gnu.org/software/screen/manual/)
+- [tmux Cheat Sheet](https://github.com/rothgar/awesome-tmux)
+- [screen User Guide](https://www.gnu.org/software/screen/manual/)
