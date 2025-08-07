@@ -18,6 +18,10 @@ Ce projet permet de piloter un ornithoptère (ou autre dispositif) à l'aide de 
 - [Guide de configuration](./docs/setup.md)
 - [Documentation MicroPython](https://docs.micropython.org/en/latest/reference/repl.html)
 
+## 🔌 Schéma de l'ESP32
+
+![Pinout diagram](./docs/pinout.png)
+
 ---
 
 Pour toute question sur le fonctionnement interne, consultez la documentation technique ci-dessus.
