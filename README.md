@@ -184,33 +184,6 @@ cp source/nrf24l01.py /path/to/esp32/
 </details>
 
 <details>
-<summary>📁 <strong>Structure du projet</strong></summary>
-
-```
-Ornithoptere/
-├── source/                          # Code principal
-│   ├── programme_antenne_emission.py    # Programme émetteur (manette)
-│   ├── programme_antenne_reception.py   # Programme récepteur (drone)
-│   ├── antenne.py                       # Gestion communication NRF24L01
-│   ├── components.py                    # Composants (moteurs, joysticks...)
-│   ├── flight_controler.py             # Contrôleur de vol
-│   ├── gamepad.py                       # Gestion de la manette
-│   └── tests/                           # Tests unitaires
-├── simulation_pc/                   # Simulation sur PC
-│   ├── antenne_serial.py               # Simulation de l'antenne via port série
-│   └── creer_ports_serie.sh            # Script création ports virtuels
-├── scripts/                         # Scripts utilitaires
-│   ├── start-simu.sh                   # Lance la simulation complète
-│   ├── deploy.sh                       # Déploiement vers ESP32
-│   └── run-tests.sh                    # Lance les tests
-├── docs/                           # Documentation
-│   └── pinout.png                      # Schéma de branchement
-└── benchmark/                      # Tests de performance
-```
-
-</details>
-
-<details>
 <summary>🔧 <strong>Développement</strong></summary>
 
 ### Lancer les tests
