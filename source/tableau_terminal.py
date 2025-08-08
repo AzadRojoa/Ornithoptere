@@ -5,10 +5,11 @@ except ImportError:
 
 
 class TableauTerminal:
-    def __init__(self, data, refresh=0.1, titre=None):
+    def __init__(self, data, refresh=0.1, titre=None, info_box=None):
         self._data = data.copy()
         self._refresh = refresh
         self._titre = titre
+        self._info_box = info_box
         self._running = False
         self._lock = None
         if _thread:
@@ -29,6 +30,18 @@ class TableauTerminal:
         if self._lock:
             self._lock.acquire()
         self._data = new_data.copy()
+        if self._lock:
+            self._lock.release()
+
+    @property
+    def info_box(self):
+        return self._info_box
+
+    @info_box.setter
+    def info_box(self, new_info_box):
+        if self._lock:
+            self._lock.acquire()
+        self._info_box = new_info_box
         if self._lock:
             self._lock.release()
 
@@ -66,6 +79,32 @@ class TableauTerminal:
                 row += f" {str(v).ljust(w-1)}|"
             print(row)
             print(line)
+
+            # Afficher l'info box si elle existe
+            if self._info_box:
+                print()  # Ligne vide
+                max_width = (
+                    sum(col_widths) + len(col_widths) + 1
+                )  # Largeur totale du tableau
+                info_lines = self._info_box.split("\n")
+
+                # Calculer la largeur maximale des lignes d'info
+                info_width = (
+                    max(len(line) for line in info_lines) + 4
+                )  # +4 pour les espaces
+                box_width = min(info_width, max_width)
+
+                # Ligne du haut
+                print("┌" + "─" * (box_width - 2) + "┐")
+
+                # Contenu
+                for line in info_lines:
+                    padded_line = f" {line}".ljust(box_width - 2)
+                    print("│" + padded_line + "│")
+
+                # Ligne du bas
+                print("└" + "─" * (box_width - 2) + "┘")
+
             print("(Ctrl+C pour quitter)")
             import time
 

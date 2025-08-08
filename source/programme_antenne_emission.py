@@ -60,7 +60,16 @@ else:
 
 gamepad = Gamepad(inputs)
 titre_tableau = "emetteur" + (" (SIMULATION)" if SIMULATION else "")
-tableau = TableauTerminal(data, titre=titre_tableau)
+
+# Créer l'info box pour les contrôles en simulation
+info_box = None
+if SIMULATION:
+    info_box = """🎮 CONTRÔLES CLAVIER:
+J1 (gauche): WASD + ESPACE (toggle) + R (centre)
+J2 (droite): ↑←↓→ + ENTRÉE (toggle) + C (centre)
+Général: Z (tout centrer)"""
+
+tableau = TableauTerminal(data, titre=titre_tableau, info_box=info_box)
 tableau.start()
 
 try:

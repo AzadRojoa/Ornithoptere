@@ -6,7 +6,7 @@ tmux split-window -v -t esp32
 
 tmux select-pane -t esp32:0.0
 
-tmux split-window -h
+tmux split-window -v
 
 tmux send-keys -t esp32:0.0 'screen /dev/ttyUSB0 115200' C-m
 

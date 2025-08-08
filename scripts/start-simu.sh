@@ -17,7 +17,7 @@ tmux split-window -v -t $SESSION
  tmux send-keys -t $SESSION:0.1 'SIMULATION=True python3 source/programme_antenne_emission.py' C-m
 
 # Split horizontal pour panneau 2 (récepteur)
-tmux split-window -h
+tmux split-window -v
  tmux send-keys -t $SESSION:0.2 'SIMULATION=True python3 source/programme_antenne_reception.py' C-m
 
 # Active la souris
