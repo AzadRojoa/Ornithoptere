@@ -75,7 +75,7 @@ class TestGamepad(unittest.TestCase):
 
         # Test des propriétés du bouton
         self.assertIsInstance(bouton.value, int)
-        self.assertIsInstance(bouton.is_pressed(), int)
+        self.assertIsInstance(bouton.is_pressed(), bool)
 
 
 if __name__ == "__main__":
