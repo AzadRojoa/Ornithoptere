@@ -22,11 +22,22 @@ if SIMULATION:
 else:
     from antenne import Antenne
 
-from components import Bouton, Joystick
+from components import Bouton, Joystick, SimulatedJoystick
 from gamepad import Gamepad
 from tableau_terminal import TableauTerminal
 
-inputs = {"J1": Joystick(36, 39, 32), "J2": Joystick(33, 34, 35)}
+# Initialisation des inputs selon le mode
+if SIMULATION:
+    from keyboard_controller import KeyboardController
+
+    # Utiliser des joysticks simulés en mode simulation
+    inputs = {
+        "J1": SimulatedJoystick(36, 39, 32, "J1"),
+        "J2": SimulatedJoystick(33, 34, 35, "J2"),
+    }
+else:
+    # Utiliser les vrais joysticks sur ESP32
+    inputs = {"J1": Joystick(36, 39, 32), "J2": Joystick(33, 34, 35)}
 
 data = {
     "Nom": "emetteur" + (" (SIMULATION)" if SIMULATION else ""),
@@ -39,8 +50,13 @@ if SIMULATION:
     print("🔧 MODE SIMULATION ACTIVÉ")
     print(f"Port série: {SIMULATION_PORT_EMETTEUR}")
     antenne = Antenne(mode="emetteur", port=SIMULATION_PORT_EMETTEUR)
+
+    # Démarrer le contrôleur clavier
+    keyboard_controller = KeyboardController(inputs)
+    keyboard_controller.start()
 else:
     antenne = Antenne(mode="emetteur")
+    keyboard_controller = None
 
 gamepad = Gamepad(inputs)
 tableau = TableauTerminal(data)
@@ -48,11 +64,20 @@ tableau.start()
 
 try:
     while True:
-        data["message envoyé"] = antenne.send(gamepad.read())
+        gamepad_data = gamepad.read()
+        data["message envoyé"] = antenne.send(gamepad_data)
+
+        # Ajouter les infos des joysticks simulés à l'affichage
+        if SIMULATION and keyboard_controller:
+            data["Contrôles"] = keyboard_controller.get_joystick_status()
+
         tableau.data = data
         time.sleep(0.5)
 except KeyboardInterrupt:
     tableau.stop()
-    if SIMULATION and hasattr(antenne, "close"):
-        antenne.close()
+    if SIMULATION:
+        if keyboard_controller:
+            keyboard_controller.stop()
+        if hasattr(antenne, "close"):
+            antenne.close()
     print("\nArrêt du test.")

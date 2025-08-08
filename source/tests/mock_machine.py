@@ -28,13 +28,17 @@ class MockADC:
 
     def __init__(self, pin):
         self.pin = pin
-        self._value = 2048  # Valeur par défaut au centre
+        self._value = 2048  # Valeur par défaut au centre (12 bits ADC)
 
     def atten(self, attenuation):
         pass
 
     def read(self):
         return self._value
+
+    def set_value(self, value):
+        """Permet de changer la valeur pour les tests"""
+        self._value = max(0, min(4095, value))
 
 
 class MockPWM:

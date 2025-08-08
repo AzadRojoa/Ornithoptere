@@ -34,6 +34,75 @@ class Joystick:
         return self._bt.value()
 
 
+class SimulatedJoystick:
+    """Joystick simulé contrôlable par clavier"""
+
+    def __init__(self, pin_x: int, pin_y: int, pin_bt: int, name: str = ""):
+        self.name = name
+        self.pin_x = pin_x
+        self.pin_y = pin_y
+        self.pin_bt = pin_bt
+
+        # Valeurs centrales par défaut (ADC 12 bits: 0-4095, centre à 2048)
+        self._x_value = 2048
+        self._y_value = 2048
+        self._bt_value = 1  # Non pressé par défaut
+
+        # Pas d'incrémentation pour les contrôles
+        self.step = 200
+
+        # Limites ADC 12 bits
+        self.min_val = 0
+        self.max_val = 4095
+
+    def read(self) -> Tuple[int, int, int]:
+        return (self._x_value, self._y_value, self._bt_value)
+
+    def set_x(self, value: int) -> None:
+        """Définir directement la valeur X"""
+        self._x_value = max(self.min_val, min(self.max_val, value))
+
+    def set_y(self, value: int) -> None:
+        """Définir directement la valeur Y"""
+        self._y_value = max(self.min_val, min(self.max_val, value))
+
+    def increment_x(self, delta: int) -> None:
+        """Incrémenter la valeur X"""
+        self._x_value = max(self.min_val, min(self.max_val, self._x_value + delta))
+
+    def increment_y(self, delta: int) -> None:
+        """Incrémenter la valeur Y"""
+        self._y_value = max(self.min_val, min(self.max_val, self._y_value + delta))
+
+    def press_button(self) -> None:
+        """Simuler appui sur le bouton"""
+        self._bt_value = 0
+
+    def release_button(self) -> None:
+        """Simuler relâchement du bouton"""
+        self._bt_value = 1
+
+    def center(self) -> None:
+        """Remettre le joystick au centre"""
+        self._x_value = 2048
+        self._y_value = 2048
+
+    @property
+    def x(self) -> int:
+        return self._x_value
+
+    @property
+    def y(self) -> int:
+        return self._y_value
+
+    @property
+    def bt(self) -> int:
+        return self._bt_value
+
+    def __str__(self) -> str:
+        return f"SimulatedJoystick({self.name}: X={self.x}, Y={self.y}, Button={'Pressed' if self.bt == 0 else 'Released'})"
+
+
 class Bouton:
     def __init__(self, pin: int, pull: int = Pin.PULL_UP) -> None:
         self._pin: Pin = Pin(pin, Pin.IN, pull)
