@@ -1,53 +1,66 @@
-# Ornithoptere
+# Ornithoptère - Système de Contrôle Radio
 
-Ce projet permet de piloter un ornithoptère (ou autre dispositif) à l'aide de modules radio NRF24L01 et d'un microcontrôleur compatible MicroPython (ESP32, ESP8266, etc).
+Ce projet permet de piloter un ornithoptère (ou autre dispositif) à distance via des modules radio NRF24L01 et des microcontrôleurs ESP32 compatibles MicroPython.
 
----
+## 🎯 Vue d'ensemble
 
-## 🚀 **DÉMARRAGE ULTRA-RAPIDE**
+Le système comprend deux parties :
+- **Émetteur** : Contrôleur avec joysticks pour envoyer les commandes
+- **Récepteur** : Dispositif embarqué qui reçoit et exécute les commandes
 
-```bash
-git clone [URL_DU_PROJET]
-cd Ornithoptere
-./install.sh
-```
-
-📖 **[Guide complet pour débutants](docs/quickstart.md)**
-
----
+Le projet inclut également un **mode simulation** complet permettant de développer et tester sans matériel physique.
 
 ## 📚 Documentation
 
-- **[📖 Index de la documentation](docs/Index.md)** ← Commencez ici
-- **[🚀 Guide de démarrage rapide](docs/quickstart.md)** ← Pour débuter
-- **[🔧 Configuration avancée](docs/setup.md)** ← Pour développeurs
-- **[💻 Mode simulation PC](docs/simulation.md)** ← Tester sans ESP32
-- **[🛠️ Scripts et outils](docs/scripts.md)** ← Automatisation
-- **[🔍 Dépannage](docs/TROUBLESHOOTING.md)** ← Résoudre les problèmes
+### 🚀 Pour commencer
+- **[🚀 Guide d'utilisation](docs/quickstart.md)** - Comment utiliser le projet (simulation, déploiement)
+- **[� Dépendances](docs/dependencies.md)** - Liste des dépendances et installation
+
+### 🛠️ Configuration
+- **[🔧 Setup avancé](docs/setup.md)** - Installation et configuration pour développeurs expérimentés
+- **[🏗️ Architecture](docs/architecture.md)** - Structure et fonctionnement du projet
+
+### 🎮 Fonctionnalités avancées
+- **[⌨️ Contrôle Clavier](docs/controle_clavier.md)** - Simulation avec contrôles clavier
+- **[🧪 Simulation](docs/simulation.md)** - Mode simulation détaillé
+
+### 🐛 Aide
+- **[🐛 Dépannage](docs/TROUBLESHOOTING.md)** - Solutions aux problèmes courants
+
+
+## 🚀 Démarrage rapide
+
+### Mode Simulation (recommandé pour débuter)
+```bash
+# 1. Lancer les ports virtuels
+./simulation_pc/creer_ports_serie.sh
+
+# 2. Dans un autre terminal, activer la simulation
+# Éditez source/programme_antenne_emission.py : SIMULATION = True
+python3 source/programme_antenne_emission.py
+
+# 3. Contrôlez avec le clavier : W/A/S/D, flèches, etc.
+```
+
+## 🛠️ Technologies
+
+- **MicroPython** - Firmware pour ESP32
+- **NRF24L01** - Modules radio 2.4GHz
+- **Python 3** - Simulation PC
+- **Gamepad/Joysticks** - Interface de contrôle
+
+## 🤝 Contribution
+
+1. Fork le projet
+2. Créez une branche feature
+3. Commitez vos changements
+4. Poussez vers la branche
+5. Ouvrez une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence libre. Voir le fichier LICENSE pour plus de détails.
 
 ---
 
-## 🎮 Utilisation rapide
-
-### Mode simulation (recommandé pour débuter)
-```bash
-source .venv/bin/activate
-# Changez SIMULATION = True dans vos programmes .py
-./simulation_pc/creer_ports_serie.sh  # Terminal 1
-python3 source/programme_antenne_emission.py    # Terminal 2
-python3 source/programme_antenne_reception.py   # Terminal 3
-```
-
-### Mode ESP32 réel
-```bash
-source .venv/bin/activate
-# Changez SIMULATION = False dans vos programmes .py
-./scripts/deploy.sh   # Déployer sur ESP32
-./scripts/start.sh    # Surveiller les ESP32
-```
-
----
-
-## 🔌 Schéma de l'ESP32
-
-![Pinout diagram](docs/pinout.png)
+**🎮 Amusez-vous bien avec votre ornithoptère !**
