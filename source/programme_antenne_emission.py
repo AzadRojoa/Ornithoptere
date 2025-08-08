@@ -1,7 +1,7 @@
 import time
 
 # ========== CONFIGURATION SIMULATION ==========
-SIMULATION = False  # Changez à True pour utiliser la simulation PC
+SIMULATION = True  # Changez à True pour utiliser la simulation PC
 SIMULATION_PORT_EMETTEUR = "/tmp/esp32_emetteur"
 # ===============================================
 
@@ -40,9 +40,9 @@ else:
     inputs = {"J1": Joystick(36, 39, 32), "J2": Joystick(33, 34, 35)}
 
 data = {
-    "Nom": "emetteur" + (" (SIMULATION)" if SIMULATION else ""),
     "message envoyé": False,
-    "Message": "Coucou, ceci est un texte long",
+    "Joystick J1": "",
+    "Joystick J2": "",
 }
 
 # Initialisation de l'antenne selon le mode
@@ -59,7 +59,8 @@ else:
     keyboard_controller = None
 
 gamepad = Gamepad(inputs)
-tableau = TableauTerminal(data)
+titre_tableau = "emetteur" + (" (SIMULATION)" if SIMULATION else "")
+tableau = TableauTerminal(data, titre=titre_tableau)
 tableau.start()
 
 try:
@@ -67,12 +68,21 @@ try:
         gamepad_data = gamepad.read()
         data["message envoyé"] = antenne.send(gamepad_data)
 
-        # Ajouter les infos des joysticks simulés à l'affichage
+        # Ajouter les infos de chaque joystick séparément à l'affichage
         if SIMULATION and keyboard_controller:
-            data["Contrôles"] = keyboard_controller.get_joystick_status()
+            for name, joystick in keyboard_controller.joysticks.items():
+                if (
+                    hasattr(joystick, "x")
+                    and hasattr(joystick, "y")
+                    and hasattr(joystick, "bt")
+                ):
+                    button_status = "🔴" if joystick.bt == 0 else "⚪"
+                    data[
+                        f"Joystick {name}"
+                    ] = f"X={joystick.x:4d} Y={joystick.y:4d} Btn={button_status}"
 
         tableau.data = data
-        time.sleep(0.5)
+        time.sleep(0.1)
 except KeyboardInterrupt:
     tableau.stop()
     if SIMULATION:

@@ -25,18 +25,23 @@ class KeyboardController:
             "s": ("J1", "increment_y", -200),  # Bas
             "a": ("J1", "increment_x", -200),  # Gauche
             "d": ("J1", "increment_x", 200),  # Droite
-            " ": ("J1", "press_button", None),  # Espace = bouton J1
+            " ": ("J1", "toggle_button", None),  # Espace = toggle bouton J1
             # Joystick J2 (Flèches + Enter)
             "\x1b[A": ("J2", "increment_y", 200),  # Flèche haut
             "\x1b[B": ("J2", "increment_y", -200),  # Flèche bas
             "\x1b[D": ("J2", "increment_x", -200),  # Flèche gauche
             "\x1b[C": ("J2", "increment_x", 200),  # Flèche droite
-            "\r": ("J2", "press_button", None),  # Enter = bouton J2
+            "\r": ("J2", "toggle_button", None),  # Enter = toggle bouton J2
             # Touches de remise à zéro
             "r": ("J1", "center", None),  # R = centrer J1
             "c": ("J2", "center", None),  # C = centrer J2
             "z": ("ALL", "center", None),  # Z = tout centrer
         }
+
+        # État des touches pour éviter les répétitions
+        self.key_pressed = set()
+        # État des boutons toggles
+        self.button_states = {"J1": False, "J2": False}
 
         # État original du terminal
         self.old_settings = None
@@ -98,10 +103,9 @@ class KeyboardController:
                 key = self._read_key()
                 if key:
                     self._process_key(key)
-
-                # Relâcher automatiquement les boutons après un court délai
-                time.sleep(0.05)
-                self._release_buttons()
+                else:
+                    # Nettoyer l'état des touches si aucune touche n'est pressée
+                    self.key_pressed.clear()
 
                 time.sleep(0.01)  # Éviter une surcharge CPU
 
@@ -112,26 +116,72 @@ class KeyboardController:
 
     def _process_key(self, key: str):
         """Traite une touche pressée"""
+        # Éviter les répétitions de touches pour les actions de toggle
+        if key in [" ", "\r"] and key in self.key_pressed:
+            return
+
         if key in self.key_mappings:
             joystick_name, action, value = self.key_mappings[key]
 
+            # Marquer la touche comme pressée pour les actions de toggle
+            if action == "toggle_button":
+                self.key_pressed.add(key)
+
             if joystick_name == "ALL":
                 # Action sur tous les joysticks
-                for joy in self.joysticks.values():
-                    if hasattr(joy, action):
-                        if value is not None:
-                            getattr(joy, action)(value)
-                        else:
+                if action == "center":
+                    # Centrer tous les joysticks et réinitialiser tous les boutons
+                    for name, joy in self.joysticks.items():
+                        if hasattr(joy, action):
                             getattr(joy, action)()
+                        if name in self.button_states:
+                            self.button_states[name] = False
+                            if hasattr(joy, "release_button"):
+                                joy.release_button()
+                else:
+                    for joy in self.joysticks.values():
+                        if hasattr(joy, action):
+                            if value is not None:
+                                getattr(joy, action)(value)
+                            else:
+                                getattr(joy, action)()
             else:
                 # Action sur un joystick spécifique
                 if joystick_name in self.joysticks:
                     joystick = self.joysticks[joystick_name]
-                    if hasattr(joystick, action):
+
+                    if action == "toggle_button":
+                        # Gérer le toggle du bouton
+                        self._toggle_button(joystick_name, joystick)
+                    elif action == "center":
+                        # Centrer le joystick et réinitialiser l'état du bouton
+                        if hasattr(joystick, action):
+                            getattr(joystick, action)()
+                        if joystick_name in self.button_states:
+                            self.button_states[joystick_name] = False
+                            if hasattr(joystick, "release_button"):
+                                joystick.release_button()
+                    elif hasattr(joystick, action):
                         if value is not None:
                             getattr(joystick, action)(value)
                         else:
                             getattr(joystick, action)()
+
+    def _toggle_button(self, joystick_name: str, joystick):
+        """Bascule l'état du bouton d'un joystick"""
+        if joystick_name in self.button_states:
+            current_state = self.button_states[joystick_name]
+            new_state = not current_state
+            self.button_states[joystick_name] = new_state
+
+            if new_state:
+                # Activer le bouton
+                if hasattr(joystick, "press_button"):
+                    joystick.press_button()
+            else:
+                # Désactiver le bouton
+                if hasattr(joystick, "release_button"):
+                    joystick.release_button()
 
     def _release_buttons(self):
         """Relâche automatiquement tous les boutons des joysticks"""
@@ -146,12 +196,12 @@ class KeyboardController:
         print("=" * 50)
         print("Joystick J1 (gauche):")
         print("  W/A/S/D    : Déplacer le joystick")
-        print("  ESPACE     : Appuyer sur le bouton")
+        print("  ESPACE     : Basculer le bouton (ON/OFF)")
         print("  R          : Centrer le joystick")
         print()
         print("Joystick J2 (droite):")
         print("  ↑/←/↓/→    : Déplacer le joystick")
-        print("  ENTRÉE     : Appuyer sur le bouton")
+        print("  ENTRÉE     : Basculer le bouton (ON/OFF)")
         print("  C          : Centrer le joystick")
         print()
         print("Général:")

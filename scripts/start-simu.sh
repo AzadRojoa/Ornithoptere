@@ -4,6 +4,8 @@
 
 SESSION=simu
 
+cd ..
+
 # Crée une nouvelle session détachée
 tmux new-session -d -s $SESSION
 

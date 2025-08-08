@@ -5,9 +5,10 @@ except ImportError:
 
 
 class TableauTerminal:
-    def __init__(self, data, refresh=0.5):
+    def __init__(self, data, refresh=0.1, titre=None):
         self._data = data.copy()
         self._refresh = refresh
+        self._titre = titre
         self._running = False
         self._lock = None
         if _thread:
@@ -40,6 +41,13 @@ class TableauTerminal:
                 self._lock.release()
             # Efface l'écran et remet le curseur en haut
             print("\033[2J\033[H", end="")
+
+            # Afficher le titre s'il existe
+            if self._titre:
+                print(f"\n{self._titre}")
+                print("=" * len(self._titre))
+                print()
+
             keys = list(data.keys())
             values = [str(data[k]) for k in keys]
             col_widths = [
