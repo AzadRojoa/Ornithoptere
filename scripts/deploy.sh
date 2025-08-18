@@ -8,10 +8,10 @@ PORTS=( $(ls /dev/ttyUSB*) )
 
 # 1. Choix du type de programme
 echo "Quel programme voulez-vous envoyer ?"
-select PROGRAM in "emission" "reception"; do
+select PROGRAM in "emetteur" "recepteur"; do
     case $PROGRAM in
-        emission ) MAIN_FILE="programme_antenne_emission.py"; break;;
-        reception ) MAIN_FILE="programme_antenne_reception.py"; break;;
+        emetteur ) MAIN_FILE="emetteur_esp32.py"; break;;
+        recepteur ) MAIN_FILE="recepteur_esp32.py"; break;;
         * ) echo "Choix invalide";;
     esac
 done
@@ -53,13 +53,30 @@ for file in $FILES; do
     echo "rm $file" >> "$TMP_MPSH"
 done
 
-# Uploader tous les fichiers, en renommant le bon programme en main.py
-for filepath in "$SOURCE_DIR"/*; do
-    filename=$(basename "$filepath")
-    if [[ "$filename" == "$MAIN_FILE" ]]; then
-        echo "put $filepath main.py" >> "$TMP_MPSH"
+# Liste des fichiers essentiels à déployer (exclure simulation)
+ESSENTIAL_FILES=(
+    "programme_antenne_unifie.py"
+    "tableau_terminal.py"
+    "components.py"
+    "gamepad.py"
+    "antenne.py"
+    "$MAIN_FILE"
+)
+
+# Ajouter simulation_helper.py seulement si nécessaire (pour compatibilité)
+ESSENTIAL_FILES+=("simulation_helper.py")
+
+# Uploader seulement les fichiers essentiels
+for filename in "${ESSENTIAL_FILES[@]}"; do
+    filepath="$SOURCE_DIR/$filename"
+    if [[ -f "$filepath" ]]; then
+        if [[ "$filename" == "$MAIN_FILE" ]]; then
+            echo "put $filepath main.py" >> "$TMP_MPSH"
+        else
+            echo "put $filepath $filename" >> "$TMP_MPSH"
+        fi
     else
-        echo "put $filepath $filename" >> "$TMP_MPSH"
+        echo "⚠️  Fichier manquant: $filename"
     fi
 done
 
