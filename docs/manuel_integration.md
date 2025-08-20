@@ -16,7 +16,7 @@ Le système est composé de deux parties distinctes :
 - **Drone** : Il reçoit les commandes et contrôle les actionneurs
 
 ```
-┌─────────────────────┐    Radio NRF24L01    ┌─────────────────────┐
+┌─────────────────────┐    Radio NRF24L01     ┌─────────────────────┐
 │    ÉMETTEUR         │◄─────────────────────►│    RÉCEPTEUR        │
 │  (Télécommande)     │                       │   (Ornithoptère)    │
 │                     │                       │                     │
@@ -26,6 +26,8 @@ Le système est composé de deux parties distinctes :
 │ └─────────────────┘ │                       │ └─────────────────┘ │
 └─────────────────────┘                       └─────────────────────┘
 ```
+
+<div style="page-break-before: always;"></div>
 
 ### Structure des fichiers
 
@@ -68,6 +70,8 @@ ce_pin=26, csn_pin=27
 channel=76, address=b"2Node"
 ```
 
+<div style="page-break-before: always;"></div>
+
 ### 2. Périphériques d'entrée
 
 **Classe `Joystick` (`joystick.py`)**
@@ -108,6 +112,9 @@ channel=76, address=b"2Node"
 - Session tmux avec 3 panneaux
 - Terminaux série pour monitoring
 - Navigation à la souris
+
+<div style="page-break-before: always;"></div>
+
 
 ### Prérequis système
 
