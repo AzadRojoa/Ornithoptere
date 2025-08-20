@@ -1,5 +1,5 @@
 from antenne import Antenne
-from components import Joystick, Bouton
+from joystick import Joystick
 import time
 
 J = Joystick(36, 39, 32)
