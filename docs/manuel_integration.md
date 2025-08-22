@@ -1,14 +1,14 @@
 # Manuel d'intégration du code
 
-## Introduction
+## 1. Introduction
 
 Ce manuel d'intégration s'adresse aux développeurs souhaitant comprendre, modifier ou étendre le projet Ornithoptère. Il présente l'architecture système, les composants principaux, et les points d'extension pour personnaliser le comportement de l'appareil.
 
 Le projet est conçu pour piloter un ornithoptère via des modules radio NRF24L01 et des microcontrôleurs ESP32/ESP8266 utilisant MicroPython.
 
-## Architecture système
+## 2. Architecture système
 
-### Vue d'ensemble
+### 2.1 Vue d'ensemble
 
 Le système est composé de deux parties distinctes :
 
@@ -29,7 +29,7 @@ Le système est composé de deux parties distinctes :
 
 <div style="page-break-before: always;"></div>
 
-### Structure des fichiers
+### 2.2 Structure des fichiers
 
 ```
 source/
@@ -49,13 +49,13 @@ source/
     └── programme_antenne_reception.py   # Programme récepteur
 ```
 
-## Composants principaux
+## 3. Composants principaux
 
-### 1. Communication radio (`antenne.py`)
+### 3.1 Communication radio (`antenne.py`)
 
 **Classe `Antenne`**
 - **Rôle** : Abstraction haut niveau de la communication radio
-- **Modes** : `'emetteur'` ou `'recepteur'`
+- **Modes** : `'émetteur'` ou `'récepteur'`
 - **Méthodes principales** :
   - `send(message)` : Envoi de messages (dict, str, bytes)
   - `receive()` : Réception de messages avec décodage automatique JSON
@@ -72,7 +72,7 @@ channel=76, address=b"2Node"
 
 <div style="page-break-before: always;"></div>
 
-### 2. Périphériques d'entrée
+### 3.2 Périphériques d'entrée
 
 **Classe `Joystick` (`joystick.py`)**
 - **Méthodes** : `read()`, propriétés `x`, `y`, `bt`
@@ -82,7 +82,7 @@ channel=76, address=b"2Node"
 - **Méthodes** : `is_pressed()`, propriété `value`
 - **Configuration** : broche digitale avec pull-up
 
-### 3. Périphériques de sortie
+### 3.3 Périphériques de sortie
 
 **Classe `Moteur` (`moteur.py`)**
 - **Contrôle** : PWM pour moteurs DC
@@ -92,15 +92,15 @@ channel=76, address=b"2Node"
 - **Contrôle** : PWM pour servomoteurs
 - **Méthodes** : `angle(deg)`, propriétés `deg`, `frequency`
 
-### 4. Utilitaires
+### 3.4 Utilitaires
 
 **Classe `Logger` (`logger.py`)**
 - **Méthodes** : `debug()`, `info()`, `warning()`, `error()`
 - **Sortie** : Fichier texte avec horodatage
 
-## Configuration et déploiement
+## 4. Configuration et déploiement
 
-### Scripts de déploiement
+### 4.1 Scripts de déploiement
 
 **`deploy.sh`** : Automatise le déploiement sur ESP32
 - Sélection du programme (émission/réception)
@@ -116,33 +116,33 @@ channel=76, address=b"2Node"
 <div style="page-break-before: always;"></div>
 
 
-### Prérequis système
+### 4.2 Prérequis système
 
 Voir le fichier [`setup.md`](./setup.md) pour l'installation des dépendances :
 - Python 3 + venv
 - mpfshell
 - tmux, screen
 
-## Bonnes pratiques
+## 5. Bonnes pratiques
 
-### Gestion d'erreur
+### 5.1 Gestion d'erreurs
 - Toujours vérifier les valeurs reçues avant utilisation
 - Implémenter des timeouts pour les communications
-- Ajouter des logs pour le debug
+- Ajouter des logs pour le débogage
 
-### Performance
+### 5.2 Performance
 - Maintenir une fréquence de communication constante
 - Éviter les calculs longs dans les boucles principales
 - Utiliser des interruptions pour les événements critiques
 
-### Sécurité
+### 5.3 Sécurité
 - Implémenter un mode "failsafe" en cas de perte de signal
 - Limiter les valeurs de commande dans des plages sûres
 - Ajouter des protections contre les commandes incohérentes
 
-## Extension et maintenance
+## 6. Extension et maintenance
 
-### Ajout de nouvelles fonctionnalités
+### 6.1 Ajout de nouvelles fonctionnalités
 
 1. **Identifier le composant concerné** (communication, capteur, actionneur)
 2. **Créer une nouvelle classe** en suivant les patterns existants
@@ -150,7 +150,7 @@ Voir le fichier [`setup.md`](./setup.md) pour l'installation des dépendances :
 4. **Mettre à jour la documentation** et les schémas de câblage
 5. **Tester** sur le matériel cible
 
-### Debug et troubleshooting
+### 6.2 Débogage et dépannage
 
 - Utiliser la classe `Logger` pour tracer l'exécution
 - Vérifier les connexions matérielles avec le schéma pinout
