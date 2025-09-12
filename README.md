@@ -1,1 +1,0 @@
-# 🦅 Ornithoptère
