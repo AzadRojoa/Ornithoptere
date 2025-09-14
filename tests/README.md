@@ -1,6 +1,9 @@
-# Tests Unitaires pour Ornithoptere
+# Tests Unitaires pour Ornithopter### 📊 Avec mesure de couverture
+```bash
+python3 tests/run_tests_coverage.py
+```
 
-Ce répertoire contient tous les tests unitaires pour les modules du projet Ornithoptere.
+### 🎯 Tests par moduletoire contient tous les tests unitaires pour les modules du projet Ornithoptere.
 
 ## 📁 Structure
 
@@ -37,7 +40,12 @@ python3 tests/run_tests_detailed.py
 python3 tests/run_tests_coverage.py
 ```
 
-### 🎯 Tests par module
+### � Présentation dynamique (recommandée pour démo)
+```bash
+python3 tests/run_tests_coverage_dynamic.py
+```
+
+### �🎯 Tests par module
 ```bash
 python3 tests/test_bouton.py
 python3 tests/test_logger.py
