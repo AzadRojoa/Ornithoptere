@@ -132,26 +132,26 @@ install_deps() {
 # Fonction pour la présentation stylisée
 run_presentation() {
     echo -e "${BLUE}================================================================================${NC}"
-    echo -e "${BLUE}🛩️  ORNITHOPTÈRE - SUITE DE TESTS UNITAIRES & COUVERTURE DE CODE${NC}"
+    echo -e "${BLUE}    ORNITHOPTÈRE - SUITE DE TESTS UNITAIRES & COUVERTURE DE CODE${NC}"
     echo -e "${BLUE}================================================================================${NC}"
     echo ""
     
     # Phase 2: Exécution des tests
-    echo -e "${BLUE}🔬 EXÉCUTION DES TESTS UNITAIRES${NC}"
+    echo -e "${BLUE}   EXÉCUTION DES TESTS UNITAIRES${NC}"
     echo "──────────────────────────────────────────────────────"
     
     # Lancer les tests avec coverage
     if python3 -m coverage run --rcfile=.coveragerc tests/run_tests.py > /dev/null 2>&1; then
-        echo -e "${GREEN}🎯 Exécution terminée: 52 tests en 0.024s${NC}"
+        echo -e "${GREEN}   Exécution terminée: 52 tests en 0.024s${NC}"
         echo -e "${GREEN}   TOUS LES TESTS RÉUSSIS!${NC}"
     else
-        echo -e "${RED}❌ Erreur lors de l'exécution des tests${NC}"
+        echo -e "${RED}   Erreur lors de l'exécution des tests${NC}"
         exit 1
     fi
     echo ""
     
     # Phase 3: Rapport de couverture
-    echo -e "${BLUE}📊 RAPPORT DE COUVERTURE DE CODE${NC}"
+    echo -e "${BLUE}   RAPPORT DE COUVERTURE DE CODE${NC}"
     echo "=================================================="
     
     # Tableau stylisé avec données réelles
@@ -182,7 +182,7 @@ run_presentation() {
     
     # Générer le rapport HTML
     python3 -m coverage html --rcfile=.coveragerc > /dev/null 2>&1
-    echo -e "${BLUE}📊 Rapport HTML généré: htmlcov/index.html${NC}"
+    echo -e "${BLUE}   Rapport HTML généré: htmlcov/index.html${NC}"
 }
 
 # Parser les arguments
