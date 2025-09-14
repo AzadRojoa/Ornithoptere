@@ -1,0 +1,32 @@
+[run]
+# Fichiers source à analyser
+source = source/
+
+# Fichiers à exclure du calcul de coverage
+omit = 
+    */tests/*
+    */test_*
+    */__pycache__/*
+    */.*
+    source/programme_antenne_emission.py
+    source/programme_antenne_reception.py
+    source/nrf24l01.py
+
+[report]
+# Afficher les lignes manquantes
+show_missing = True
+
+# Précision des pourcentages (2 décimales)
+precision = 2
+
+# Exclure certaines lignes du calcul
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    raise AssertionError
+
+[html]
+# Répertoire pour le rapport HTML
+directory = htmlcov

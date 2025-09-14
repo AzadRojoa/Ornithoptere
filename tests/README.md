@@ -2,52 +2,60 @@
 
 Ce répertoire contient tous les tests unitaires pour les modules du projet Ornithoptere.
 
-## Structure
+## 📁 Structure
 
 ```
 tests/
 ├── __init__.py
-├── micropython_mocks.py       # Système de mocks pour MicroPython
-├── mocks.py                   # Classes mock originales (dépréciées)
-├── README.md                  # Cette documentation
-├── requirements-test.txt      # Dépendances pour les tests
-├── run_tests.py              # Script original (avec problèmes)
-├── run_tests_simple.py       # Script principal pour exécuter tous les tests
-├── run_tests_coverage.py     # Script avec mesure de couverture
-├── test_*.py                 # Tests originaux (avec problèmes d'import)
-├── test_*_simple.py          # Tests simplifiés et fonctionnels
-├── test_bouton.py            # Tests pour le module Bouton (fonctionnel)
-└── test_logger.py            # Tests pour le module Logger (fonctionnel)
+├── micropython_mocks.py          # Système de mocks pour MicroPython  
+├── README.md                     # Cette documentation
+├── run_tests.py                  # Runner principal
+├── run_tests_detailed.py         # Runner avec affichage détaillé
+├── run_tests_coverage.py         # Runner avec mesure de couverture
+├── test_antenne.py              # Tests du module antenne
+├── test_bouton.py               # Tests du module bouton
+├── test_joystick.py             # Tests du module joystick  
+├── test_logger.py               # Tests du module logger
+├── test_moteur.py               # Tests du module moteur
+└── test_servomoteurs.py         # Tests du module servomoteurs
 ```
 
-## Exécution des tests
+## 🚀 Exécution des tests
 
-### ⭐ Méthode recommandée - Exécuter tous les tests
+### ⭐ Méthode recommandée - Tous les tests
 ```bash
-python3 tests/run_tests_simple.py
+python3 tests/run_tests.py
 ```
 
-### Exécuter un test spécifique
+### 🔍 Voir chaque test en détail
+```bash
+python3 tests/run_tests_detailed.py
+```
+
+### 📊 Avec mesure de couverture
+```bash
+python3 tests/run_tests_coverage.py
+```
+
+### 🎯 Tests par module
 ```bash
 python3 tests/test_bouton.py
 python3 tests/test_logger.py
-python3 tests/test_joystick_simple.py
-python3 tests/test_moteur_simple.py
-python3 tests/test_servomoteurs_simple.py
-python3 tests/test_antenne_simple.py
+python3 tests/test_joystick.py
+python3 tests/test_moteur.py
+python3 tests/test_servomoteurs.py
+python3 tests/test_antenne.py
 ```
 
-### Exécuter avec unittest
+### 📝 Avec unittest verbose
 ```bash
 python3 -m unittest tests.test_bouton -v
 python3 -m unittest tests.test_logger -v
-python3 -m unittest tests.test_joystick_simple -v
-python3 -m unittest tests.test_moteur_simple -v
-python3 -m unittest tests.test_servomoteurs_simple -v
-python3 -m unittest tests.test_antenne_simple -v
+python3 -m unittest tests.test_joystick -v
+python3 -m unittest tests.test_moteur -v
+python3 -m unittest tests.test_servomoteurs -v
+python3 -m unittest tests.test_antenne -v
 ```
-
-### Exécuter avec coverage (optionnel)
 ```bash
 python3 tests/run_tests_coverage.py
 ```
