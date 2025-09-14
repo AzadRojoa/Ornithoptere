@@ -1,0 +1,4 @@
+# Configuration pour les tests
+pytest
+coverage
+mock
