@@ -3,6 +3,11 @@
 python3 tests/run_tests_coverage.py
 ```
 
+### 📋 Résumé simplifié
+```bash
+python3 tests/run_tests_simple.py
+```
+
 ### 🎯 Tests par moduletoire contient tous les tests unitaires pour les modules du projet Ornithoptere.
 
 ## 📁 Structure
@@ -15,6 +20,7 @@ tests/
 ├── run_tests.py                  # Runner principal
 ├── run_tests_detailed.py         # Runner avec affichage détaillé
 ├── run_tests_coverage.py         # Runner avec mesure de couverture
+├── run_tests_simple.py           # Runner simplifié avec résumé
 ├── test_antenne.py              # Tests du module antenne
 ├── test_bouton.py               # Tests du module bouton
 ├── test_joystick.py             # Tests du module joystick  
