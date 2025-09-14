@@ -1,0 +1,92 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Exécuter tous les tests",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/run_tests_simple.py"],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tests avec couverture",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/run_tests_coverage.py"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Nettoyer fichiers de test",
+            "type": "shell",
+            "command": "./test.sh",
+            "args": ["clean"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Test module Bouton",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/test_bouton.py"],
+            "group": "test"
+        },
+        {
+            "label": "Test module Logger",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/test_logger.py"],
+            "group": "test"
+        },
+        {
+            "label": "Test module Joystick",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/test_joystick_simple.py"],
+            "group": "test"
+        },
+        {
+            "label": "Test module Moteur",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/test_moteur_simple.py"],
+            "group": "test"
+        },
+        {
+            "label": "Test module ServoMoteur",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/test_servomoteurs_simple.py"],
+            "group": "test"
+        },
+        {
+            "label": "Test module Antenne",
+            "type": "shell",
+            "command": "python3",
+            "args": ["tests/test_antenne_simple.py"],
+            "group": "test"
+        }
+    ]
+}
